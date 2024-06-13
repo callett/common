@@ -131,7 +131,7 @@ async function m(e, t) {
         if (a.indexOf("(") !== -1) {
             a = a.substring(0, a.indexOf('(')).trim();
         }
-        if (l.match(/\d+/g) !== -1) {
+        if (l.match(/\d+/g)) {
             l = a
         }
         n = o, s && (o = u(o)), e === c && (c = ""), p = " \t" + (d(t) + e + " " + c) + "\n落地IP: \t" + o + ": " + g + "ms\n落地ISP: \t" + l + "\n落地ASN: \t" + r.substring(r.indexOf(" ") + 1)
