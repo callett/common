@@ -104,7 +104,7 @@ async function m(e, t) {
     return s
 }(async() => {
     let n = "",
-    l = "节点信息查询",
+    l = "IP信息查询",
     r = "代理链",
     p = "",
     f = "",
