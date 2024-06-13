@@ -1,7 +1,7 @@
-#!name= General Enhanced
-#!desc= (iOS版)1.添加跳过代理部分段内容 2.添加返回真实IP段内容 3.添加不可MitM的域名，防止打断连接
-#!system= ios
-#!author= ZEUS
+#!name = General Enhanced
+#!desc = (iOS版)1.添加跳过代理部分段内容 2.添加返回真实IP段内容 3.添加不可MitM的域名，防止打断连接
+#!system = ios
+#!author = ZEUS
 
 [General]
 # > 跳过代理
