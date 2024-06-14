@@ -8,7 +8,8 @@ const URL = arg?.url || your_url;
 if (!URL) $notification.post('配置错误❌', 'URL有误或无');
 // 面板
 let panel = {};
-panel.title = arg?.title || 'CAT VPS';
+// panel.title = arg?.title || 'CAT VPS';
+panel.title = 'VPS监控';
 panel.icon = arg?.icon;
 let shifts = {
     '1': arg?.low,
