@@ -743,6 +743,9 @@ IP-CIDR,58.251.60.0/24,no-resolve
 IP-CIDR,58.251.56.0/21,no-resolve
 IP-CIDR,58.251.0.0/16,no-resolve
 IP-CIDR,58.248.0.0/13,no-resolve
+IP-CIDR,157.255.202.0/23,no-resolve
+IP-CIDR,157.255.192.0/19,no-resolve
+IP-CIDR,157.255.0.0/16,no-resolve
 
 IP-CIDR6,2402:db40:5100:1011::5/128,no-resolve
 URL-REGEX,^https?:\/\/.+?\.beacon\.qq\.com
