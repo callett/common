@@ -29,8 +29,10 @@ DOMAIN-SUFFIX,twttr.net
 DOMAIN-SUFFIX,twvid.com
 DOMAIN-SUFFIX,vine.co
 DOMAIN-SUFFIX,x.com
+DOMAIN-SUFFIX,chaturbate.com
+DOMAIN-SUFFIX,mmcdn.com
+DOMAIN-SUFFIX,ably-realtime.com:443
 DOMAIN-KEYWORD,twitter
-DOMAIN-KEYWORD,chaturbate.com
 IP-CIDR,192.133.76.0/22,no-resolve
 # IP-CIDR,199.59.148.0/22,no-resolve
 IP-CIDR,199.96.56.0/21,no-resolve
