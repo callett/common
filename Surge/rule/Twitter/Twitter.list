@@ -1,7 +1,7 @@
 # NAME: Twitter
 # AUTHOR: ZEUS
 # DOMAIN-KEYWORD: 2
-# DOMAIN-SUFFIX: 25
+# DOMAIN-SUFFIX: 28
 # IP-CIDR: 6
 # TOTAL: 32
 DOMAIN-SUFFIX,ads-twitter.com
@@ -31,7 +31,7 @@ DOMAIN-SUFFIX,vine.co
 DOMAIN-SUFFIX,x.com
 DOMAIN-SUFFIX,chaturbate.com
 DOMAIN-SUFFIX,mmcdn.com
-DOMAIN-SUFFIX,ably-realtime.com:443
+DOMAIN-SUFFIX,ably-realtime.com
 DOMAIN-KEYWORD,twitter
 IP-CIDR,192.133.76.0/22,no-resolve
 # IP-CIDR,199.59.148.0/22,no-resolve

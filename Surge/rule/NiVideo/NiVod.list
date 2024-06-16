@@ -1,7 +1,7 @@
-# NAME: NiVideo
+# NAME: NiVod
 # AUTHOR: ZEUS
 # DOMAIN-KEYWORD: 1
-# DOMAIN-SUFFIX: 9
+# DOMAIN-SUFFIX: 12
 # TOTAL: 10
 DOMAIN-SUFFIX,cdn.polyfill.io
 DOMAIN-SUFFIX,www.nivod6.tv
@@ -14,5 +14,5 @@ DOMAIN-SUFFIX,pl20989738.profitablegatecpm.com
 DOMAIN-SUFFIX,pl20989734.profitablegatecpm.com
 DOMAIN-SUFFIX,chaturbate.com
 DOMAIN-SUFFIX,mmcdn.com
-DOMAIN-SUFFIX,ably-realtime.com:443
+DOMAIN-SUFFIX,ably-realtime.com
 DOMAIN-KEYWORD,nivod
