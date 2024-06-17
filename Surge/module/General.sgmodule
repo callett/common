@@ -1,5 +1,5 @@
 #!name = General Enhanced
-#!desc = (iOS版) 1.跳过代理 2.返回真实IP段 3.定义本地DNS记录 4.不可MitM的域名,防止打断连接
+#!desc = (iOS版) 1.跳过代理 2.返回真实IP段 3.不可MitM的域名,防止打断连接
 #!system = ios
 #!author = ZEUS
 
