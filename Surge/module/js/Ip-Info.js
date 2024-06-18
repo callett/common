@@ -27,8 +27,8 @@ let content = ''
 		let [info] = await Promise.all([getInfo()])
 		$.log($.toStr(info))
 		const ip = $.lodash_get(info, 'ip') || ' - '
-		title = `IP信息查询`
-        ip = 'IP:' + ip
+		title = 'IP信息查询'
+        ip = 'IP:' + `${ip}`
 		const privacyObj = $.lodash_get(info, 'privacy') || {}
 		let privacy = []
 		const privacyMap = {
