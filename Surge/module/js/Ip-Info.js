@@ -45,7 +45,7 @@ let content = ''
 		)
 	})
 	type = type.length > 0 ? `${type}` : 'hosting'
-	let asnTs = type.substring(type.indexOf(' '))
+	let asnTs = type.substring(6)
 	if('hosting' === asnTs) {
 		type = type.replace(asnTs, 'IDC机房IP')
 	} else if ('isp' === asnTs) {
