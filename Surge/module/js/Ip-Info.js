@@ -6,104 +6,116 @@ $.isTile = () => $.isStash() && typeof $script != 'undefined' && $.lodash_get($s
 
 let arg
 if (typeof $argument != 'undefined') {
-    arg = Object.fromEntries($argument.split('&').map(item => item.split('=')))
+	arg = Object.fromEntries($argument.split('&')
+		.map(item => item.split('=')))
 }
 
 let title = ''
 let content = ''
 !(async () => {
-    if ($.isTile()) {
-        await notify('IP 信息', '面板', '开始查询')
-    }
-    // let LAN_IP = ''
-    // if (typeof $network !== 'undefined') {
-    //   $.log($network)
-    //   const primaryAddress = $.lodash_get($network, 'v4.primaryAddress')
-    //   if (primaryAddress) {
-    //     LAN_IP = ` 🅻 ${primaryAddress}`
-    //   }
-    // }
-    let [info] = await Promise.all([getInfo()])
-    $.log($.toStr(info))
-    const ip = $.lodash_get(info, 'ip') || ' - '
-    title = `${ip}`
+		if ($.isTile()) {
+			await notify('IP 信息', '面板', '开始查询')
+		}
+		// let LAN_IP = ''
+		// if (typeof $network !== 'undefined') {
+		//   $.log($network)
+		//   const primaryAddress = $.lodash_get($network, 'v4.primaryAddress')
+		//   if (primaryAddress) {
+		//     LAN_IP = ` 🅻 ${primaryAddress}`
+		//   }
+		// }
+		let [info] = await Promise.all([getInfo()])
+		$.log($.toStr(info))
+		const ip = $.lodash_get(info, 'ip') || ' - '
+		title = `${ip}`
 
-    const privacyObj = $.lodash_get(info, 'privacy') || {}
-    let privacy = []
-    const privacyMap = {
-        true: '✓',
-        false: '✗',
-        '': '-',
-    }
-    Object.keys(privacyObj).forEach(key => {
-        privacy.push(`${key.toUpperCase()}: ${privacyMap[privacyObj[key]]}`)
-    })
-    privacy = privacy.length > 0 ? `${privacy.join('\n')}\n` : ''
-    let geo = []
-    ;['country', 'region', 'city'].forEach(key => {
-        geo.push(`${key.toUpperCase()}: ${$.lodash_get(info, key) || ' - '}`)
-    })
-    geo = geo.length > 0 ? `${geo.join('\n')}\n` : ''
-    let company = []
-    ;['name', 'type'].forEach(key => {
-        company.push(
-            `COMPANY${key === 'name' ? '' : ` ${key.toUpperCase()}`}: ${$.lodash_get(info, `company.${key}`) || ' - '}`
-        )
-    })
-    company = company.length > 0 ? `${company.join('\n')}\n` : ''
-    content = `${geo}${company}${privacy}执行时间: ${new Date().toTimeString().split(' ')[0]}`
-    if ($.isTile()) {
-        await notify('IP 信息', '面板', '查询完成')
-    } else if (!$.isPanel()) {
-        await notify('IP 信息', title, content)
-    }
-})()
-    .catch(async e => {
-    $.logErr(e)
-    $.logErr($.toStr(e))
-    const msg = `${$.lodash_get(e, 'message') || $.lodash_get(e, 'error') || e}`
-    title = `❌`
-    content = msg
-    await notify('IP 信息', title, content)
-})
-    .finally(async () => {
-    const result = { title, content, ...arg }
-    $.log($.toStr(result))
-    $.done(result)
-})
+		const privacyObj = $.lodash_get(info, 'privacy') || {}
+		let privacy = []
+		const privacyMap = {
+			true: '✓',
+			false: '✗',
+			'': '-',
+		}
+		Object.keys(privacyObj)
+			.forEach(key => {
+				privacy.push(`${key.toUpperCase()}: ${privacyMap[privacyObj[key]]}`)
+			})
+		privacy = privacy.length > 0 ? `${privacy.join('\n')}\n` : ''
+		let geo = [];
+		['country', 'region', 'city'].forEach(key => {
+			geo.push(`${key.toUpperCase()}: ${$.lodash_get(info, key) || ' - '}`)
+		})
+		geo = geo.length > 0 ? `${geo.join('\n')}\n` : ''
+		let asn = [];
+		['name', 'type'].forEach(key => {
+			asn.push(
+				`ASN${key === 'name' ? '' : ` ${key.toUpperCase()}`}: ${$.lodash_get(info, `asn.${key}`) || ' - '}`
+			)
+		})
+        let company = [];
+		['name', 'type'].forEach(key => {
+			company.push(
+				`COMPANY${key === 'name' ? '' : ` ${key.toUpperCase()}`}: ${$.lodash_get(info, `company.${key}`) || ' - '}`
+			)
+		})
+        asn = asn.length > 0 ? `${asn.join('\n')}\n` : ''
+		company = company.length > 0 ? `${company.join('\n')}\n` : ''
+		content = `${geo}${company}${asn}`
+		if ($.isTile()) {
+			await notify('IP 信息', '面板', '查询完成')
+		} else if (!$.isPanel()) {
+			await notify('IP 信息', title, content)
+		}
+	})()
+	.catch(async e => {
+		$.logErr(e)
+		$.logErr($.toStr(e))
+		const msg = `${$.lodash_get(e, 'message') || $.lodash_get(e, 'error') || e}`
+		title = `❌`
+		content = msg
+		await notify('IP 信息', title, content)
+	})
+	.finally(async () => {
+		const result = {
+			title,
+			content,
+			...arg
+		}
+		$.log($.toStr(result))
+		$.done(result)
+	})
 
 // 通知
 async function notify(title, subt, desc, opts) {
-    if ($.lodash_get(arg, 'notify')) {
-        $.msg(title, subt, desc, opts)
-    } else {
-        $.log('🔕', title, subt, desc, opts)
-    }
+	if ($.lodash_get(arg, 'notify')) {
+		$.msg(title, subt, desc, opts)
+	} else {
+		$.log('🔕', title, subt, desc, opts)
+	}
 }
 
 async function getInfo() {
-    let info = {}
+	let info = {}
 
-    try {
-        const res = await $.http.get({
-            url: `https://ipinfo.io/widget`,
-            headers: {
-                Referer: 'https://ipinfo.io/',
-                'User-Agent':
-                'Mozilla/5.0 (iPhone CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/109.0.0.0',
-            },
-        })
-        let body = String($.lodash_get(res, 'body'))
-        try {
-            body = JSON.parse(body)
-        } catch (e) {}
-        info = body
-    } catch (e) {
-        $.logErr(e)
-        $.logErr($.toStr(e))
-    }
+	try {
+		const res = await $.http.get({
+			url: `https://ipinfo.io/widget`,
+			headers: {
+				Referer: 'https://ipinfo.io/',
+				'User-Agent': 'Mozilla/5.0 (iPhone CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/109.0.0.0',
+			},
+		})
+		let body = String($.lodash_get(res, 'body'))
+		try {
+			body = JSON.parse(body)
+		} catch (e) {}
+		info = body
+	} catch (e) {
+		$.logErr(e)
+		$.logErr($.toStr(e))
+	}
 
-    return info
+	return info
 }
 
 // prettier-ignore
