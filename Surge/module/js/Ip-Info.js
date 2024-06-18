@@ -27,8 +27,8 @@ let content = ''
 		let [info] = await Promise.all([getInfo()])
 		$.log($.toStr(info))
 		const ip = $.lodash_get(info, 'ip') || ' - '
-		title = `${ip}`
-
+		title = `IP信息查询`
+        ip = 'IP:' + ip
 		const privacyObj = $.lodash_get(info, 'privacy') || {}
 		let privacy = []
 		const privacyMap = {
@@ -60,11 +60,11 @@ let content = ''
 		})
         asn = asn.length > 0 ? `${asn.join('\n')}\n` : ''
 		company = company.length > 0 ? `${company.join('\n')}\n` : ''
-		content = `${geo}${company}${asn}`
+		content = `${ip}${geo}${company}${asn}`
 		if ($.isTile()) {
 			await notify('IP 信息', '面板', '查询完成')
 		} else if (!$.isPanel()) {
-			await notify('IP 信息', '***.***.***.***', content)
+			await notify('IP 信息', title, content)
 		}
 	})()
 	.catch(async e => {
