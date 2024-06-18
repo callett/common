@@ -20,8 +20,8 @@ let content = ''
 	const ip = $.lodash_get(info, 'ip') || ' - '
 	let ipif = 'IP地址: ' + `${ip}\n`
 	let geo = [];
-	['country_code', 'city'].forEach(key => {
-		geo.push(`${$.lodash_get(info, `location.${key}`) || ' - '}`)
+	['country', 'city'].forEach(key => {
+		geo.push(`${$.lodash_get(info, key) || ' - '}`)
 	})
 	geo = geo.length > 0 ? `${geo.join(' ')}\n` : ''
 	geo = 'IP位置: ' + geo
@@ -32,9 +32,9 @@ let content = ''
 		)
 	})
 	let asn = [];
-	['org'].forEach(key => {
+	['name'].forEach(key => {
 		asn.push(
-			`ASN${key === 'org' ? '' : ` ${key.toUpperCase()}`}:     ${$.lodash_get(info, `asn.${key}`) || ' - '}`
+			`ASN${key === 'name' ? '' : ` ${key.toUpperCase()}`}:     ${$.lodash_get(info, `asn.${key}`) || ' - '}`
 		)
 	})
 	asn = asn.length > 0 ? `${asn}\n` : ''
@@ -90,12 +90,11 @@ async function notify(title, subt, desc, opts) {
 
 async function getInfo() {
 	let info = {}
-
 	try {
 		const res = await $.http.get({
-			url: `https://api.ipapi.is/`,
+			url: `https://ipinfo.io/widget/`,
 			headers: {
-				Referer: 'https://api.ipapi.is/',
+				Referer: 'https://ipinfo.io/widget/',
 				'User-Agent': 'Mozilla/5.0 (iPhone CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/109.0.0.0',
 			},
 		})
@@ -110,6 +109,10 @@ async function getInfo() {
 	}
 
 	return info
+}
+
+async function getCn() {
+
 }
 
 function Env(t, s) {
