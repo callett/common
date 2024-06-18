@@ -2,6 +2,7 @@ const $ = new Env('Ip-Info')
 
 $.isPanel = () => $.isSurge() && typeof $input != 'undefined' && $.lodash_get($input, 'purpose') === 'panel'
 $.isTile = () => $.isStash() && typeof $script != 'undefined' && $.lodash_get($script, 'type') === 'tile'
+// $.isStashCron = () => $.isStash() && typeof $script != 'undefined' && $.lodash_get($script, 'type') === 'cron'
 
 let arg
 if (typeof $argument != 'undefined') {
@@ -13,39 +14,59 @@ let title = 'IP信息查询'
 let content = ''
 !(async () => {
 	if ($.isTile()) {
-		await notify('IP信息查询', '面板', '开始查询')
+		await notify('IP 信息', '面板', '开始查询')
 	}
+	// let LAN_IP = ''
+	// if (typeof $network !== 'undefined') {
+	//   $.log($network)
+	//   const primaryAddress = $.lodash_get($network, 'v4.primaryAddress')
+	//   if (primaryAddress) {
+	//     LAN_IP = ` 🅻 ${primaryAddress}`
+	//   }
+	// }
 	let [info] = await Promise.all([getInfo()])
 	$.log($.toStr(info))
 	const ip = $.lodash_get(info, 'ip') || ' - '
-	let ipif = 'IP地址:      ' + `${ip}\n`
+	let ipif = 'IP地址:     ' + `${ip}\n`
+	const privacyObj = $.lodash_get(info, 'privacy') || {}
+	let privacy = []
+	const privacyMap = {
+		true: '✓',
+		false: '✗',
+		'': '-',
+	}
+	Object.keys(privacyObj)
+		.forEach(key => {
+		privacy.push(`${key.toUpperCase()}: ${privacyMap[privacyObj[key]]}`)
+	})
+	privacy = privacy.length > 0 ? `${privacy.join('\n')}\n` : ''
 	let geo = [];
 	['country', 'city'].forEach(key => {
 		geo.push(`${$.lodash_get(info, key) || ' - '}`)
 	})
 	geo = geo.length > 0 ? `${geo.join(' ')}\n` : ''
-	geo = 'IP位置:      ' + geo
+	geo = 'IP位置:     ' + geo
 	let company = [];
 	['name'].forEach(key => {
 		company.push(
-			`落地ISP${key === 'name' ? '' : ` ${key.toUpperCase()}`}:    ${$.lodash_get(info, `company.${key}`) || ' - '}`
+			`落地ISP${key === 'name' ? '' : ` ${key.toUpperCase()}`}:   ${$.lodash_get(info, `company.${key}`) || ' - '}`
 		)
 	})
 	let asn = [];
 	['name'].forEach(key => {
 		asn.push(
-			`落地ASN${key === 'name' ? '' : ` ${key.toUpperCase()}`}:  ${$.lodash_get(info, `asn.${key}`) || ' - '}`
+			`落地ASN${key === 'name' ? '' : ` ${key.toUpperCase()}`}: ${$.lodash_get(info, `asn.${key}`) || ' - '}`
 		)
 	})
 	asn = asn.length > 0 ? `${asn}\n` : ''
 	let type = [];
 	['type'].forEach(key => {
 		type.push(
-			`ASN类型${key === 'type' ? '' : ` ${key.toUpperCase()}`}:  ${$.lodash_get(info, `asn.${key}`) || ' - '}`
+			`ASN类型${key === 'type' ? '' : ` ${key.toUpperCase()}`}: ${$.lodash_get(info, `asn.${key}`) || ' - '}`
 		)
 	})
 	type = type.length > 0 ? `${type}` : 'hosting'
-	let sub = type.substring(8)
+	let sub = type.substring(7)
 	if('hosting' === sub) {
 		type = type.replace(sub, '机房IP')
 	} else if ('isp' === sub) {
@@ -56,9 +77,9 @@ let content = ''
 	company = company.length > 0 ? `${company.join('\n')}\n` : ''
 	content = ipif + `${geo}${company}${asn}${type}`
 	if ($.isTile()) {
-		await notify('IP信息查询', '面板', '查询完成')
+		await notify('IP 信息', '面板', '查询完成')
 	} else if (!$.isPanel()) {
-		await notify('IP信息查询', title, content)
+		await notify('IP 信息', title, content)
 	}
 })()
 	.catch(async e => {
@@ -67,7 +88,7 @@ let content = ''
 	const msg = `${$.lodash_get(e, 'message') || $.lodash_get(e, 'error') || e}`
 	title = `❌`
 	content = msg
-	await notify('IP信息查询', title, content)
+	await notify('IP 信息', title, content)
 })
 	.finally(async () => {
 	const result = {
@@ -79,6 +100,7 @@ let content = ''
 	$.done(result)
 })
 
+// 通知
 async function notify(title, subt, desc, opts) {
 	if ($.lodash_get(arg, 'notify')) {
 		$.msg(title, subt, desc, opts)
@@ -89,6 +111,7 @@ async function notify(title, subt, desc, opts) {
 
 async function getInfo() {
 	let info = {}
+
 	try {
 		const res = await $.http.get({
 			url: `https://ipinfo.io/widget`,
@@ -110,6 +133,7 @@ async function getInfo() {
 	return info
 }
 
+// prettier-ignore
 function Env(t, s) {
 	class e {
 		constructor(t) {
