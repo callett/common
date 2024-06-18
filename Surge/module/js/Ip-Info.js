@@ -59,12 +59,12 @@ let content = ''
 			)
 		})
         asn = asn.length > 0 ? `${asn.join('\n')}\n` : ''
-		company = company.length > 0 ? `${company.join('\n')}` : ''
+		company = company.length > 0 ? `${company.join('\n')}\n` : ''
 		content = `${geo}${company}${asn}`
 		if ($.isTile()) {
 			await notify('IP 信息', '面板', '查询完成')
 		} else if (!$.isPanel()) {
-			await notify('IP 信息', title.substring(0, r.indexOf(".")+1) + '***.***.***', content)
+			await notify('IP 信息', '***.***.***.***', content)
 		}
 	})()
 	.catch(async e => {
