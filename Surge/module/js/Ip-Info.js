@@ -28,30 +28,30 @@ let content = ''
 	let company = [];
 	['name'].forEach(key => {
 		company.push(
-			`落地ISP${key === 'name' ? '' : ` ${key.toUpperCase()}`}:   ${$.lodash_get(info, `company.${key}`) || ' - '}`
+			`企业${key === 'name' ? '' : ` ${key.toUpperCase()}`}:   ${$.lodash_get(info, `company.${key}`) || ' - '}`
 		)
 	})
 	let asn = [];
 	['org'].forEach(key => {
 		asn.push(
-			`落地ASN${key === 'org' ? '' : ` ${key.toUpperCase()}`}: ${$.lodash_get(info, `asn.${key}`) || ' - '}`
+			`ASN${key === 'org' ? '' : ` ${key.toUpperCase()}`}: ${$.lodash_get(info, `asn.${key}`) || ' - '}`
 		)
 	})
 	asn = asn.length > 0 ? `${asn}\n` : ''
 	let type = [];
 	['type'].forEach(key => {
 		type.push(
-			`ASN类型${key === 'type' ? '' : ` ${key.toUpperCase()}`}: ${$.lodash_get(info, `asn.${key}`) || ' - '}`
+			`IP类型${key === 'type' ? '' : ` ${key.toUpperCase()}`}: ${$.lodash_get(info, `asn.${key}`) || ' - '}`
 		)
 	})
 	type = type.length > 0 ? `${type}` : 'hosting'
-	let sub = type.substring(7)
-	if('hosting' === sub) {
-		type = type.replace(sub, '机房IP')
-	} else if ('isp' === sub) {
-		type = type.replace(sub, '住宅IP')
-	} else if('business' === sub) {
-		type = type.replace(sub, '企业IP')
+	let asnTs = type.substring(7)
+	if('hosting' === asnTs) {
+		type = type.replace(asnTs, '机房IP')
+	} else if ('isp' === asnTs) {
+		type = type.replace(asnTs, '住宅IP')
+	} else if('business' === asnTs) {
+		type = type.replace(asnTs, '企业IP')
 	}
 	company = company.length > 0 ? `${company.join('\n')}\n` : ''
 	content = ipif + `${geo}${company}${asn}${type}`
