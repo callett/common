@@ -1,0 +1,10 @@
+#!name = IP 信息
+#!desc = IP-INFO Privacy
+#!author = ZEUS
+
+[Script]
+# Panel
+ip-info = type=generic,timeout=60,script-path=https://raw.githubusercontent.com/chen-zeus/zeus/main/Surge/module/js/Ip-Info.js,argument=icon=info.circle.fill&icon-color=#5d84f8
+
+[Panel]
+ip-info = script-name=ip-info-panel,update-interval=-1
