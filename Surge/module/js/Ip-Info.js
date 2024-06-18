@@ -28,7 +28,7 @@ let content = ''
 	let company = [];
 	['name'].forEach(key => {
 		company.push(
-			`企业${key === 'name' ? '' : ` ${key.toUpperCase()}`}:    ${$.lodash_get(info, `company.${key}`) || ' - '}`
+			`企业${key === 'name' ? '' : ` ${key.toUpperCase()}`}:     ${$.lodash_get(info, `company.${key}`) || ' - '}`
 		)
 	})
 	let asn = [];
