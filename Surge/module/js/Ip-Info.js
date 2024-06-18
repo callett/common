@@ -47,11 +47,11 @@ let content = ''
 	type = type.length > 0 ? `${type}` : 'hosting'
 	let asnTs = type.substring(6)
 	if('hosting' === asnTs) {
-		type = type.replace(asnTs, 'IDC机房IP')
+		type = type.replace(asnTs, 'IDC机房')
 	} else if ('isp' === asnTs) {
-		type = type.replace(asnTs, '家庭宽带IP')
+		type = type.replace(asnTs, '家庭宽带')
 	} else if('business' === asnTs) {
-		type = type.replace(asnTs, '企业商务IP')
+		type = type.replace(asnTs, '企业商务')
 	}
 	company = company.length > 0 ? `${company.join('\n')}\n` : ''
 	content = ipif + `${geo}${company}${asn}${type}`
