@@ -18,17 +18,17 @@ let content = ''
 	let [info] = await Promise.all([getInfo()])
 	$.log($.toStr(info))
 	const ip = $.lodash_get(info, 'ip') || ' - '
-	let ipif = 'IP地址:' + `${ip}\n`
+	let ipif = 'IP地址: ' + `${ip}\n`
 	let geo = [];
-	['country', 'city'].forEach(key => {
+	['country_code', 'city'].forEach(key => {
 		geo.push(`${$.lodash_get(info, `location.${key}`) || ' - '}`)
 	})
 	geo = geo.length > 0 ? `${geo.join(' ')}\n` : ''
-	geo = 'IP位置:' + geo
+	geo = 'IP位置: ' + geo
 	let company = [];
 	['name'].forEach(key => {
 		company.push(
-			`企业${key === 'name' ? '' : ` ${key.toUpperCase()}`}:     ${$.lodash_get(info, `company.${key}`) || ' - '}`
+			`企业${key === 'name' ? '' : ` ${key.toUpperCase()}`}:    ${$.lodash_get(info, `company.${key}`) || ' - '}`
 		)
 	})
 	let asn = [];
