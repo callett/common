@@ -43,8 +43,8 @@ const ICONS = [
         }
         result.push(disney_result)
         let content = result.join('\n')
-
-        panel_result['content'] = content
+        let time = '\n执行时间: ' + formatLocalDate(new Date())
+        panel_result['content'] = content + time
     })
         .finally(() => {
         $done(panel_result)
@@ -373,4 +373,13 @@ function getIcon(code, icons) {
         }
     }
     return code
+}
+
+function formatLocalDate(date) {
+	return (
+		date.getFullYear() + '-' +
+		(date.getMonth() + 1).toString().padStart(2, '0') + '-' +
+		date.getDate().toString().padStart(2, '0') + ' ' +
+		date.toTimeString().split(' ')[0]
+	);
 }

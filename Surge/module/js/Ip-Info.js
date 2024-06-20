@@ -46,15 +46,16 @@ let content = ''
 	})
 	type = type.length > 0 ? `${type}` : 'hosting'
 	let asnTs = type.substring(6)
-	if('hosting' === asnTs) {
+	if ('hosting' === asnTs) {
 		type = type.replace(asnTs, 'IDC机房')
 	} else if ('isp' === asnTs) {
 		type = type.replace(asnTs, '家庭宽带')
-	} else if('business' === asnTs) {
+	} else if ('business' === asnTs) {
 		type = type.replace(asnTs, '企业商务')
 	}
 	company = company.length > 0 ? `${company.join('\n')}\n` : ''
-	content = ipif + `${geo}${company}${asn}${type}`
+	let time = '\n执行时间: ' + formatLocalDate(new Date())
+	content = ipif + `${geo}${company}${asn}${type}` + time
 	if ($.isTile()) {
 		await notify('IP信息查询', '面板', '查询完成')
 	} else if (!$.isPanel()) {
@@ -62,23 +63,23 @@ let content = ''
 	}
 })()
 	.catch(async e => {
-	$.logErr(e)
-	$.logErr($.toStr(e))
-	const msg = `${$.lodash_get(e, 'message') || $.lodash_get(e, 'error') || e}`
-	title = `❌`
-	content = msg
-	await notify('IP信息查询', title, content)
-})
+		$.logErr(e)
+		$.logErr($.toStr(e))
+		const msg = `${$.lodash_get(e, 'message') || $.lodash_get(e, 'error') || e}`
+		title = `❌`
+		content = msg
+		await notify('IP信息查询', title, content)
+	})
 	.finally(async () => {
-	const result = {
-		title,
-		content,
-		icon: "globe.asia.australia",
-		'icon-color': '#3D90ED'
-	}
-	$.log($.toStr(result))
-	$.done(result)
-})
+		const result = {
+			title,
+			content,
+			icon: "globe.asia.australia",
+			'icon-color': '#3D90ED'
+		}
+		$.log($.toStr(result))
+		$.done(result)
+	})
 
 async function notify(title, subt, desc, opts) {
 	if ($.lodash_get(arg, 'notify')) {
@@ -86,6 +87,15 @@ async function notify(title, subt, desc, opts) {
 	} else {
 		$.log('🔕', title, subt, desc, opts)
 	}
+}
+
+function formatLocalDate(date) {
+	return (
+		date.getFullYear() + '-' +
+		(date.getMonth() + 1).toString().padStart(2, '0') + '-' +
+		date.getDate().toString().padStart(2, '0') + ' ' +
+		date.toTimeString().split(' ')[0]
+	);
 }
 
 async function getInfo() {
@@ -101,7 +111,7 @@ async function getInfo() {
 		let body = String($.lodash_get(res, 'body'))
 		try {
 			body = JSON.parse(body)
-		} catch (e) {}
+		} catch (e) { }
 		info = body
 	} catch (e) {
 		$.logErr(e)
@@ -180,7 +190,7 @@ function Env(t, s) {
 			const i = this.getdata(t);
 			if (i) try {
 				e = JSON.parse(this.getdata(t))
-			} catch {}
+			} catch { }
 			return e
 		}
 		setjson(t, s) {
@@ -224,9 +234,9 @@ function Env(t, s) {
 			if (!this.isNode()) return {}; {
 				this.fs = this.fs ? this.fs : require("fs"), this.path = this.path ? this.path : require("path");
 				const t = this.path.resolve(this.dataFile),
-				s = this.path.resolve(process.cwd(), this.dataFile),
-				e = this.fs.existsSync(t),
-				i = !e && this.fs.existsSync(s);
+					s = this.path.resolve(process.cwd(), this.dataFile),
+					e = this.fs.existsSync(t),
+					i = !e && this.fs.existsSync(s);
 				if (!e && !i) return {}; {
 					const i = e ? t : s;
 					try {
@@ -241,10 +251,10 @@ function Env(t, s) {
 			if (this.isNode()) {
 				this.fs = this.fs ? this.fs : require("fs"), this.path = this.path ? this.path : require("path");
 				const t = this.path.resolve(this.dataFile),
-				s = this.path.resolve(process.cwd(), this.dataFile),
-				e = this.fs.existsSync(t),
-				i = !e && this.fs.existsSync(s),
-				r = JSON.stringify(this.data);
+					s = this.path.resolve(process.cwd(), this.dataFile),
+					e = this.fs.existsSync(t),
+					i = !e && this.fs.existsSync(s),
+					r = JSON.stringify(this.data);
 				e ? this.fs.writeFileSync(t, r) : i ? this.fs.writeFileSync(s, r) : this.fs.writeFileSync(t, r)
 			}
 		}
@@ -253,13 +263,13 @@ function Env(t, s) {
 				.split(".");
 			let r = t;
 			for (const t of i)
-			if (r = Object(r)[t], void 0 === r) return e;
+				if (r = Object(r)[t], void 0 === r) return e;
 			return r
 		}
 		lodash_set(t, s, e) {
 			return Object(t) !== t ? t : (Array.isArray(s) || (s = s.toString()
 				.match(/[^.[\]]+/g) || []), s.slice(0, -1)
-				.reduce((t, e, i) => Object(t[e]) === t[e] ? t[e] : t[e] = Math.abs(s[i + 1]) >> 0 == +s[i + 1] ? [] : {}, t)[s[s.length - 1]] = e, t)
+					.reduce((t, e, i) => Object(t[e]) === t[e] ? t[e] : t[e] = Math.abs(s[i + 1]) >> 0 == +s[i + 1] ? [] : {}, t)[s[s.length - 1]] = e, t)
 		}
 		getdata(t) {
 			let s = this.getval(t);
@@ -297,7 +307,7 @@ function Env(t, s) {
 		initGotEnv(t) {
 			this.got = this.got ? this.got : require("got"), this.cktough = this.cktough ? this.cktough : require("tough-cookie"), this.ckjar = this.ckjar ? this.ckjar : new this.cktough.CookieJar, t && (t.headers = t.headers ? t.headers : {}, void 0 === t.headers.Cookie && void 0 === t.cookieJar && (t.cookieJar = this.ckjar))
 		}
-		get(t, s = (() => {})) {
+		get(t, s = (() => { })) {
 			if (t.headers && (delete t.headers["Content-Type"], delete t.headers["Content-Length"]), this.isSurge() || this.isShadowrocket() || this.isLoon() || this.isStash()) this.isSurge() && this.isNeedRewrite && (t.headers = t.headers || {}, Object.assign(t.headers, {
 				"X-Surge-Skip-Scripting": !1
 			})), $httpClient.get(t, (t, e, i) => {
@@ -307,57 +317,57 @@ function Env(t, s) {
 				hints: !1
 			})), $task.fetch(t)
 				.then(t => {
-				const {
-					statusCode: e,
-					statusCode: i,
-					headers: r,
-					body: o
-				} = t;
-				s(null, {
-					status: e,
-					statusCode: i,
-					headers: r,
-					body: o
-				}, o)
-			}, t => s(t && t.error || "UndefinedError"));
+					const {
+						statusCode: e,
+						statusCode: i,
+						headers: r,
+						body: o
+					} = t;
+					s(null, {
+						status: e,
+						statusCode: i,
+						headers: r,
+						body: o
+					}, o)
+				}, t => s(t && t.error || "UndefinedError"));
 			else if (this.isNode()) {
 				let e = require("iconv-lite");
 				this.initGotEnv(t), this.got(t)
 					.on("redirect", (t, s) => {
-					try {
-						if (t.headers["set-cookie"]) {
-							const e = t.headers["set-cookie"].map(this.cktough.Cookie.parse)
-								.toString();
-							e && this.ckjar.setCookieSync(e, null), s.cookieJar = this.ckjar
+						try {
+							if (t.headers["set-cookie"]) {
+								const e = t.headers["set-cookie"].map(this.cktough.Cookie.parse)
+									.toString();
+								e && this.ckjar.setCookieSync(e, null), s.cookieJar = this.ckjar
+							}
+						} catch (t) {
+							this.logErr(t)
 						}
-					} catch (t) {
-						this.logErr(t)
-					}
-				})
+					})
 					.then(t => {
-					const {
-						statusCode: i,
-						statusCode: r,
-						headers: o,
-						rawBody: h
-					} = t, a = e.decode(h, this.encoding);
-					s(null, {
-						status: i,
-						statusCode: r,
-						headers: o,
-						rawBody: h,
-						body: a
-					}, a)
-				}, t => {
-					const {
-						message: i,
-						response: r
-					} = t;
-					s(i, r, r && e.decode(r.rawBody, this.encoding))
-				})
+						const {
+							statusCode: i,
+							statusCode: r,
+							headers: o,
+							rawBody: h
+						} = t, a = e.decode(h, this.encoding);
+						s(null, {
+							status: i,
+							statusCode: r,
+							headers: o,
+							rawBody: h,
+							body: a
+						}, a)
+					}, t => {
+						const {
+							message: i,
+							response: r
+						} = t;
+						s(i, r, r && e.decode(r.rawBody, this.encoding))
+					})
 			}
 		}
-		post(t, s = (() => {})) {
+		post(t, s = (() => { })) {
 			const e = t.method ? t.method.toLocaleLowerCase() : "post";
 			if (t.body && t.headers && !t.headers["Content-Type"] && (t.headers["Content-Type"] = "application/x-www-form-urlencoded"), t.headers && delete t.headers["Content-Length"], this.isSurge() || this.isShadowrocket() || this.isLoon() || this.isStash()) this.isSurge() && this.isNeedRewrite && (t.headers = t.headers || {}, Object.assign(t.headers, {
 				"X-Surge-Skip-Scripting": !1
@@ -368,19 +378,19 @@ function Env(t, s) {
 				hints: !1
 			})), $task.fetch(t)
 				.then(t => {
-				const {
-					statusCode: e,
-					statusCode: i,
-					headers: r,
-					body: o
-				} = t;
-				s(null, {
-					status: e,
-					statusCode: i,
-					headers: r,
-					body: o
-				}, o)
-			}, t => s(t && t.error || "UndefinedError"));
+					const {
+						statusCode: e,
+						statusCode: i,
+						headers: r,
+						body: o
+					} = t;
+					s(null, {
+						status: e,
+						statusCode: i,
+						headers: r,
+						body: o
+					}, o)
+				}, t => s(t && t.error || "UndefinedError"));
 			else if (this.isNode()) {
 				let i = require("iconv-lite");
 				this.initGotEnv(t);
@@ -390,26 +400,26 @@ function Env(t, s) {
 				} = t;
 				this.got[e](r, o)
 					.then(t => {
-					const {
-						statusCode: e,
-						statusCode: r,
-						headers: o,
-						rawBody: h
-					} = t, a = i.decode(h, this.encoding);
-					s(null, {
-						status: e,
-						statusCode: r,
-						headers: o,
-						rawBody: h,
-						body: a
-					}, a)
-				}, t => {
-					const {
-						message: e,
-						response: r
-					} = t;
-					s(e, r, r && i.decode(r.rawBody, this.encoding))
-				})
+						const {
+							statusCode: e,
+							statusCode: r,
+							headers: o,
+							rawBody: h
+						} = t, a = i.decode(h, this.encoding);
+						s(null, {
+							status: e,
+							statusCode: r,
+							headers: o,
+							rawBody: h,
+							body: a
+						}, a)
+					}, t => {
+						const {
+							message: e,
+							response: r
+						} = t;
+						s(e, r, r && i.decode(r.rawBody, this.encoding))
+					})
 			}
 		}
 		time(t, s = null) {
@@ -427,8 +437,8 @@ function Env(t, s) {
 				.substr(4 - RegExp.$1.length)));
 			for (let s in i) new RegExp("(" + s + ")")
 				.test(t) && (t = t.replace(RegExp.$1, 1 == RegExp.$1.length ? i[s] : ("00" + i[s])
-				.substr(("" + i[s])
-				.length)));
+					.substr(("" + i[s])
+						.length)));
 			return t
 		}
 		queryStr(t) {
@@ -450,7 +460,7 @@ function Env(t, s) {
 				if ("object" == typeof t) {
 					if (this.isLoon()) {
 						let s = t.openUrl || t.url || t["open-url"],
-						e = t.mediaUrl || t["media-url"];
+							e = t.mediaUrl || t["media-url"];
 						return {
 							openUrl: s,
 							mediaUrl: e
@@ -458,8 +468,8 @@ function Env(t, s) {
 					}
 					if (this.isQuanX()) {
 						let s = t["open-url"] || t.url || t.openUrl,
-						e = t["media-url"] || t.mediaUrl,
-						i = t["update-pasteboard"] || t.updatePasteboard;
+							e = t["media-url"] || t.mediaUrl,
+							i = t["update-pasteboard"] || t.updatePasteboard;
 						return {
 							"open-url": s,
 							"media-url": e,
@@ -492,7 +502,7 @@ function Env(t, s) {
 		done(t = {}) {
 			const s = (new Date)
 				.getTime(),
-			e = (s - this.startTime) / 1e3;
+				e = (s - this.startTime) / 1e3;
 			this.log("", `\ud83d\udd14${this.name}, \u7ed3\u675f! \ud83d\udd5b ${e} \u79d2`), this.log(), this.isSurge() || this.isShadowrocket() || this.isQuanX() || this.isLoon() || this.isStash() ? $done(t) : this.isNode() && process.exit(1)
 		}
 	}(t, s)
