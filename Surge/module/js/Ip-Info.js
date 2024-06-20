@@ -22,16 +22,20 @@ let content = ''
 	let [info] = await Promise.all([getInfo()])
 	$.log($.toStr(info))
 	const ip = $.lodash_get(info, 'ip') || ' - '
-	let cf = [], e
+	let par = [], ping
 	try {
-		cf.push(parseFloat(await http()));
-		if (0 !== cf.length) {
-			e = ': ' + cf + 'ms';
+		for (let i = 0; i < 2; i++) {
+			par.push(parseFloat(await http()));
+		}
+		if (2 === par.length) {
+			ping = ': ' + Math.floor((par[0] + par[1]) / 2) + 'ms';
+		} else {
+			ping = ': ' + par[0] + 'ms';
 		}
 	} catch (i) {
 		console.log(i.message);
 	}
-	let ipif = 'IP地址: ' + `${ip}${e}\n`
+	let ipInfo = 'IP地址: ' + `${ip}${ping}\n`
 	let geo = [];
 	['country', 'city'].forEach(key => {
 		geo.push(`${$.lodash_get(info, key) || ' - '}`)
@@ -68,7 +72,7 @@ let content = ''
 	}
 	company = company.length > 0 ? `${company.join('\n')}\n` : ''
 	let time = '\n执行时间: ' + formatLocalDate(new Date())
-	content = ipif + `${geo}${company}${asn}${type}` + time
+	content = ipInfo + `${geo}${company}${asn}${type}` + time
 	if ($.isTile()) {
 		await notify('IP信息查询', '面板', '查询完成')
 	} else if (!$.isPanel()) {
