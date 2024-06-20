@@ -202,7 +202,7 @@ async function check_netflix() {
         if (code === 'Not Found') {
             return inner_check(80018499)
         }
-        netflix_check_result += '已完整解锁，区域: ' + code
+        netflix_check_result += '完整解锁，区域: ' + code
         return Promise.reject('BreakSignal')
     })
         .then((code) => {
@@ -210,7 +210,7 @@ async function check_netflix() {
             return Promise.reject('Not Available')
         }
 
-        netflix_check_result += '仅解锁自制剧，区域: ' + code
+        netflix_check_result += '仅自制剧，区域: ' + code
         return Promise.reject('BreakSignal')
     })
         .catch((error) => {
