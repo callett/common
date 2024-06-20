@@ -107,11 +107,11 @@ function getIcon(code, icons) {
     if (code != null && code.length === 2){
         for (let i = 0; i < icons.length; i++) {
             if (icons[i][0] === code) {
-                return icons[i][1] + code
+                return icons[i][1]
             }
         }
     }
-    return code
+    return ''
 }
 
 async function getInfo() {
