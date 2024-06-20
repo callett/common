@@ -27,7 +27,7 @@ let content = ''
 		for (let i = 0; i < 2; i++) {
 			par.push(parseFloat(await http()));
 		}
-		if (2 === par.length) {
+		if(2 === par.length) {
 			ping = ': ' + Math.floor((par[0] + par[1]) / 2) + 'ms';
 		} else {
 			ping = ': ' + par[0] + 'ms';
