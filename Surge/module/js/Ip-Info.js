@@ -28,8 +28,7 @@ let content = ''
 		geo.push(`${$.lodash_get(info, key) || ' - '}`)
 	})
 	geo = geo.length > 0 ? `${geo.join(' ')}\n` : ''
-	geo = getIcon(geo.substring(0, 2), ICONS) + geo
-	geo = 'IP位置: ' + geo
+	geo = 'IP位置: ' + getIcon(geo.substring(0, 2), ICONS) + geo
 	let company = [];
 	['name'].forEach(key => {
 		company.push(
@@ -133,12 +132,7 @@ async function getInfo() {
 		$.logErr(e)
 		$.logErr($.toStr(e))
 	}
-
 	return info
-}
-
-async function getCn() {
-
 }
 
 function Env(t, s) {
