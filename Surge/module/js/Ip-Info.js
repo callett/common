@@ -28,7 +28,8 @@ let content = ''
 			par.push(parseFloat(await http()));
 		}
 		if(2 === par.length) {
-			ping = ': ' + par[1] + 'ms';
+			let res = par[0] > par[1] ? par[1] : par[0]
+			ping = ': ' + res + 'ms';
 		} else {
 			ping = ': ' + par[0] + 'ms';
 		}
