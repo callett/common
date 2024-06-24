@@ -1,6 +1,6 @@
 const REQUEST_HEADERS = {
     'User-Agent':
-    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36',
+        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36',
     'Accept-Language': 'en',
 }
 
@@ -18,38 +18,38 @@ const STATUS_ERROR = -2
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36'
 
 const ICONS = [
-    ['AC','🇦🇨'],['AD','🇦🇩'],['AE','🇦🇪'],['AF','🇦🇫'],['AG','🇦🇬'],['AI','🇦🇮'],['AL','🇦🇱'],['AM','🇦🇲'],['AO','🇦🇴'],['AQ','🇦🇶'],['AR','🇦🇷'],['AS','🇦🇸'],['AT','🇦🇹'],['AU','🇦🇺'],['AW','🇦🇼'],['AX','🇦🇽'],['AZ','🇦🇿'],['BA','🇧🇦'],['BB','🇧🇧'],['BD','🇧🇩'],['BE','🇧🇪'],['BF','🇧🇫'],['BG','🇧🇬'],['BH','🇧🇭'],['BI','🇧🇮'],['BJ','🇧🇯'],['BM','🇧🇲'],['BN','🇧🇳'],['BO','🇧🇴'],['BR','🇧🇷'],['BS','🇧🇸'],['BT','🇧🇹'],['BV','🇧🇻'],['BW','🇧🇼'],['BY','🇧🇾'],['BZ','🇧🇿'],['CA','🇨🇦'],['CD','🇨🇩'],['CF','🇨🇫'],['CG','🇨🇬'],['CH','🇨🇭'],['CI','🇨🇮'],['CK','🇨🇰'],['CL','🇨🇱'],['CM','🇨🇲'],['CN','🇨🇳'],['CO','🇨🇴'],['CP','🇫🇷'],['CR','🇨🇷'],['CU','🇨🇺'],['CV','🇨🇻'],['CW','🇨🇼'],['CX','🇨🇽'],['CY','🇨🇾'],['CZ','🇨🇿'],['DE','🇩🇪'],['DG','🇩🇬'],['DJ','🇩🇯'],['DK','🇩🇰'],['DM','🇩🇲'],['DO','🇩🇴'],['DZ','🇩🇿'],['EA','🇪🇦'],['EC','🇪🇨'],['EE','🇪🇪'],['EG','🇪🇬'],['EH','🇪🇭'],['ER','🇪🇷'],['ES','🇪🇸'],['ET','🇪🇹'],['EU','🇪🇺'],['FI','🇫🇮'],['FJ','🇫🇯'],['FK','🇫🇰'],['FM','🇫🇲'],['FO','🇫🇴'],['FR','🇫🇷'],['GA','🇬🇦'],['GB','🇬🇧'],['GD','🇬🇩'],['GE','🇬🇪'],['GF','🇬🇫'],['GH','🇬🇭'],['GI','🇬🇮'],['GL','🇬🇱'],['GM','🇬🇲'],['GN','🇬🇳'],['GP','🇬🇵'],['GR','🇬🇷'],['GT','🇬🇹'],['GU','🇬🇺'],['GW','🇬🇼'],['GY','🇬🇾'],['HK','🇭🇰'],['HN','🇭🇳'],['HR','🇭🇷'],['HT','🇭🇹'],['HU','🇭🇺'],['ID','🇮🇩'],['IE','🇮🇪'],['IL','🇮🇱'],['IM','🇮🇲'],['IN','🇮🇳'],['IR','🇮🇷'],['IS','🇮🇸'],['IT','🇮🇹'],['JM','🇯🇲'],['JO','🇯🇴'],['JP','🇯🇵'],['KE','🇰🇪'],['KG','🇰🇬'],['KH','🇰🇭'],['KI','🇰🇮'],['KM','🇰🇲'],['KN','🇰🇳'],['KP','🇰🇵'],['KR','🇰🇷'],['KW','🇰🇼'],['KY','🇰🇾'],['KZ','🇰🇿'],['LA','🇱🇦'],['LB','🇱🇧'],['LC','🇱🇨'],['LI','🇱🇮'],['LK','🇱🇰'],['LR','🇱🇷'],['LS','🇱🇸'],['LT','🇱🇹'],['LU','🇱🇺'],['LV','🇱🇻'],['LY','🇱🇾'],['MA','🇲🇦'],['MC','🇲🇨'],['MD','🇲🇩'],['MG','🇲🇬'],['MH','🇲🇭'],['MK','🇲🇰'],['ML','🇲🇱'],['MM','🇲🇲'],['MN','🇲🇳'],['MO','🇲🇴'],['MP','🇲🇵'],['MQ','🇲🇶'],['MR','🇲🇷'],['MS','🇲🇸'],['MT','🇲🇹'],['MU','🇲🇺'],['MV','🇲🇻'],['MW','🇲🇼'],['MX','🇲🇽'],['MY','🇲🇾'],['MZ','🇲🇿'],['NA','🇳🇦'],['NC','🇳🇨'],['NE','🇳🇪'],['NF','🇳🇫'],['NG','🇳🇬'],['NI','🇳🇮'],['NL','🇳🇱'],['NO','🇳🇴'],['NP','🇳🇵'],['NR','🇳🇷'],['NZ','🇳🇿'],['OM','🇴🇲'],['PA','🇵🇦'],['PE','🇵🇪'],['PF','🇵🇫'],['PG','🇵🇬'],['PH','🇵🇭'],['PK','🇵🇰'],['PL','🇵🇱'],['PM','🇵🇲'],['PR','🇵🇷'],['PS','🇵🇸'],['PT','🇵🇹'],['PW','🇵🇼'],['PY','🇵🇾'],['QA','🇶🇦'],['RE','🇷🇪'],['RO','🇷🇴'],['RS','🇷🇸'],['RU','🇷🇺'],['RW','🇷🇼'],['SA','🇸🇦'],['SB','🇸🇧'],['SC','🇸🇨'],['SD','🇸🇩'],['SE','🇸🇪'],['SG','🇸🇬'],['SI','🇸🇮'],['SK','🇸🇰'],['SL','🇸🇱'],['SM','🇸🇲'],['SN','🇸🇳'],['SR','🇸🇷'],['ST','🇸🇹'],['SV','🇸🇻'],['SY','🇸🇾'],['SZ','🇸🇿'],['TC','🇹🇨'],['TD','🇹🇩'],['TG','🇹🇬'],['TH','🇹🇭'],['TJ','🇹🇯'],['TL','🇹🇱'],['TM','🇹🇲'],['TN','🇹🇳'],['TO','🇹🇴'],['TR','🇹🇷'],['TT','🇹🇹'],['TV','🇹🇻'],['TW','🇨🇳'],['TZ','🇹🇿'],['UA','🇺🇦'],['UG','🇺🇬'],['UK','🇬🇧'],['UM','🇺🇲'],['US','🇺🇸'],['UY','🇺🇾'],['UZ','🇺🇿'],['VA','🇻🇦'],['VC','🇻🇨'],['VE','🇻🇪'],['VG','🇻🇬'],['VI','🇻🇮'],['VN','🇻🇳'],['VU','🇻🇺'],['WS','🇼🇸'],['YE','🇾🇪'],['YT','🇾🇹'],['ZA','🇿🇦'],['ZM','🇿🇲']
+    ['AC', '🇦🇨'], ['AD', '🇦🇩'], ['AE', '🇦🇪'], ['AF', '🇦🇫'], ['AG', '🇦🇬'], ['AI', '🇦🇮'], ['AL', '🇦🇱'], ['AM', '🇦🇲'], ['AO', '🇦🇴'], ['AQ', '🇦🇶'], ['AR', '🇦🇷'], ['AS', '🇦🇸'], ['AT', '🇦🇹'], ['AU', '🇦🇺'], ['AW', '🇦🇼'], ['AX', '🇦🇽'], ['AZ', '🇦🇿'], ['BA', '🇧🇦'], ['BB', '🇧🇧'], ['BD', '🇧🇩'], ['BE', '🇧🇪'], ['BF', '🇧🇫'], ['BG', '🇧🇬'], ['BH', '🇧🇭'], ['BI', '🇧🇮'], ['BJ', '🇧🇯'], ['BM', '🇧🇲'], ['BN', '🇧🇳'], ['BO', '🇧🇴'], ['BR', '🇧🇷'], ['BS', '🇧🇸'], ['BT', '🇧🇹'], ['BV', '🇧🇻'], ['BW', '🇧🇼'], ['BY', '🇧🇾'], ['BZ', '🇧🇿'], ['CA', '🇨🇦'], ['CD', '🇨🇩'], ['CF', '🇨🇫'], ['CG', '🇨🇬'], ['CH', '🇨🇭'], ['CI', '🇨🇮'], ['CK', '🇨🇰'], ['CL', '🇨🇱'], ['CM', '🇨🇲'], ['CN', '🇨🇳'], ['CO', '🇨🇴'], ['CP', '🇫🇷'], ['CR', '🇨🇷'], ['CU', '🇨🇺'], ['CV', '🇨🇻'], ['CW', '🇨🇼'], ['CX', '🇨🇽'], ['CY', '🇨🇾'], ['CZ', '🇨🇿'], ['DE', '🇩🇪'], ['DG', '🇩🇬'], ['DJ', '🇩🇯'], ['DK', '🇩🇰'], ['DM', '🇩🇲'], ['DO', '🇩🇴'], ['DZ', '🇩🇿'], ['EA', '🇪🇦'], ['EC', '🇪🇨'], ['EE', '🇪🇪'], ['EG', '🇪🇬'], ['EH', '🇪🇭'], ['ER', '🇪🇷'], ['ES', '🇪🇸'], ['ET', '🇪🇹'], ['EU', '🇪🇺'], ['FI', '🇫🇮'], ['FJ', '🇫🇯'], ['FK', '🇫🇰'], ['FM', '🇫🇲'], ['FO', '🇫🇴'], ['FR', '🇫🇷'], ['GA', '🇬🇦'], ['GB', '🇬🇧'], ['GD', '🇬🇩'], ['GE', '🇬🇪'], ['GF', '🇬🇫'], ['GH', '🇬🇭'], ['GI', '🇬🇮'], ['GL', '🇬🇱'], ['GM', '🇬🇲'], ['GN', '🇬🇳'], ['GP', '🇬🇵'], ['GR', '🇬🇷'], ['GT', '🇬🇹'], ['GU', '🇬🇺'], ['GW', '🇬🇼'], ['GY', '🇬🇾'], ['HK', '🇭🇰'], ['HN', '🇭🇳'], ['HR', '🇭🇷'], ['HT', '🇭🇹'], ['HU', '🇭🇺'], ['ID', '🇮🇩'], ['IE', '🇮🇪'], ['IL', '🇮🇱'], ['IM', '🇮🇲'], ['IN', '🇮🇳'], ['IR', '🇮🇷'], ['IS', '🇮🇸'], ['IT', '🇮🇹'], ['JM', '🇯🇲'], ['JO', '🇯🇴'], ['JP', '🇯🇵'], ['KE', '🇰🇪'], ['KG', '🇰🇬'], ['KH', '🇰🇭'], ['KI', '🇰🇮'], ['KM', '🇰🇲'], ['KN', '🇰🇳'], ['KP', '🇰🇵'], ['KR', '🇰🇷'], ['KW', '🇰🇼'], ['KY', '🇰🇾'], ['KZ', '🇰🇿'], ['LA', '🇱🇦'], ['LB', '🇱🇧'], ['LC', '🇱🇨'], ['LI', '🇱🇮'], ['LK', '🇱🇰'], ['LR', '🇱🇷'], ['LS', '🇱🇸'], ['LT', '🇱🇹'], ['LU', '🇱🇺'], ['LV', '🇱🇻'], ['LY', '🇱🇾'], ['MA', '🇲🇦'], ['MC', '🇲🇨'], ['MD', '🇲🇩'], ['MG', '🇲🇬'], ['MH', '🇲🇭'], ['MK', '🇲🇰'], ['ML', '🇲🇱'], ['MM', '🇲🇲'], ['MN', '🇲🇳'], ['MO', '🇲🇴'], ['MP', '🇲🇵'], ['MQ', '🇲🇶'], ['MR', '🇲🇷'], ['MS', '🇲🇸'], ['MT', '🇲🇹'], ['MU', '🇲🇺'], ['MV', '🇲🇻'], ['MW', '🇲🇼'], ['MX', '🇲🇽'], ['MY', '🇲🇾'], ['MZ', '🇲🇿'], ['NA', '🇳🇦'], ['NC', '🇳🇨'], ['NE', '🇳🇪'], ['NF', '🇳🇫'], ['NG', '🇳🇬'], ['NI', '🇳🇮'], ['NL', '🇳🇱'], ['NO', '🇳🇴'], ['NP', '🇳🇵'], ['NR', '🇳🇷'], ['NZ', '🇳🇿'], ['OM', '🇴🇲'], ['PA', '🇵🇦'], ['PE', '🇵🇪'], ['PF', '🇵🇫'], ['PG', '🇵🇬'], ['PH', '🇵🇭'], ['PK', '🇵🇰'], ['PL', '🇵🇱'], ['PM', '🇵🇲'], ['PR', '🇵🇷'], ['PS', '🇵🇸'], ['PT', '🇵🇹'], ['PW', '🇵🇼'], ['PY', '🇵🇾'], ['QA', '🇶🇦'], ['RE', '🇷🇪'], ['RO', '🇷🇴'], ['RS', '🇷🇸'], ['RU', '🇷🇺'], ['RW', '🇷🇼'], ['SA', '🇸🇦'], ['SB', '🇸🇧'], ['SC', '🇸🇨'], ['SD', '🇸🇩'], ['SE', '🇸🇪'], ['SG', '🇸🇬'], ['SI', '🇸🇮'], ['SK', '🇸🇰'], ['SL', '🇸🇱'], ['SM', '🇸🇲'], ['SN', '🇸🇳'], ['SR', '🇸🇷'], ['ST', '🇸🇹'], ['SV', '🇸🇻'], ['SY', '🇸🇾'], ['SZ', '🇸🇿'], ['TC', '🇹🇨'], ['TD', '🇹🇩'], ['TG', '🇹🇬'], ['TH', '🇹🇭'], ['TJ', '🇹🇯'], ['TL', '🇹🇱'], ['TM', '🇹🇲'], ['TN', '🇹🇳'], ['TO', '🇹🇴'], ['TR', '🇹🇷'], ['TT', '🇹🇹'], ['TV', '🇹🇻'], ['TW', '🇨🇳'], ['TZ', '🇹🇿'], ['UA', '🇺🇦'], ['UG', '🇺🇬'], ['UK', '🇬🇧'], ['UM', '🇺🇲'], ['US', '🇺🇸'], ['UY', '🇺🇾'], ['UZ', '🇺🇿'], ['VA', '🇻🇦'], ['VC', '🇻🇨'], ['VE', '🇻🇪'], ['VG', '🇻🇬'], ['VI', '🇻🇮'], ['VN', '🇻🇳'], ['VU', '🇻🇺'], ['WS', '🇼🇸'], ['YE', '🇾🇪'], ['YT', '🇾🇹'], ['ZA', '🇿🇦'], ['ZM', '🇿🇲']
 ]
 
-;(async () => {
-    let panel_result = {
-        title: '流媒体解锁检测',
-        content: '',
-        icon: 'play.tv.fill',
-        'icon-color': '#FF2D55',
-    }
-    let [{ region, status }] = await Promise.all([testDisneyPlus()])
-    await Promise.all([check_chatgpt(),check_youtube_premium(),check_netflix()])
-        .then((result) => {
-        let disney_result = ''
-        if (status == STATUS_COMING) {
-            disney_result = 'Disney+: 即将登陆~' + region
-        } else if (status == STATUS_AVAILABLE){
-            disney_result = 'Disney+: 已解锁，区域: ' + region
-        } else if (status == STATUS_NOT_AVAILABLE) {
-            disney_result = 'Disney+: 未支持 🚫 '
-        } else if (status == STATUS_TIMEOUT) {
-            disney_result = 'Disney+: 检测超时 🚦'
+    ; (async () => {
+        let panel_result = {
+            title: '流媒体解锁检测',
+            content: '',
+            icon: 'play.tv.fill',
+            'icon-color': '#FF2D55',
         }
-        result.push(disney_result)
-        let content = result.join('\n')
-        let time = '\n执行时间: ' + formatLocalDate(new Date())
-        panel_result['content'] = content + time
-    })
-        .finally(() => {
-        $done(panel_result)
-    })
-})()
+        let [{ region, status }] = await Promise.all([testDisneyPlus()])
+        await Promise.all([check_chatgpt(), check_youtube_premium(), check_netflix()])
+            .then((result) => {
+                let disney_result = ''
+                if (status == STATUS_COMING) {
+                    disney_result = 'Disney+: 即将登陆~' + region
+                } else if (status == STATUS_AVAILABLE) {
+                    disney_result = 'Disney+: 已解锁，区域: ' + region
+                } else if (status == STATUS_NOT_AVAILABLE) {
+                    disney_result = 'Disney+: 未支持 🚫 '
+                } else if (status == STATUS_TIMEOUT) {
+                    disney_result = 'Disney+: 检测超时 🚦'
+                }
+                result.push(disney_result)
+                let content = result.join('\n')
+                let time = '\n执行时间: ' + formatLocalDate(new Date())
+                panel_result['content'] = content + time
+            })
+            .finally(() => {
+                $done(panel_result)
+            })
+    })()
 
 async function check_chatgpt() {
     let inner_check = () => {
@@ -58,7 +58,7 @@ async function check_chatgpt() {
                 url: 'http://chat.openai.com/cdn-cgi/trace',
                 headers: REQUEST_HEADERS,
             }
-            $httpClient.get(option, function(error, response, data) {
+            $httpClient.get(option, function (error, response, data) {
                 if (error != null || response.status !== 200) {
                     reject('Error')
                     return
@@ -90,15 +90,15 @@ async function check_chatgpt() {
 
     await inner_check()
         .then((code) => {
-        if (code === 'Not Available') {
-            check_result += '不支持解锁'
-        } else {
-            check_result += '已解锁，区域: ' + code.toUpperCase()
-        }
-    })
+            if (code === 'Not Available') {
+                check_result += '不支持解锁'
+            } else {
+                check_result += '已解锁，区域: ' + code.toUpperCase()
+            }
+        })
         .catch((error) => {
-        check_result += '检测失败，请刷新面板'
-    })
+            check_result += '检测失败，请刷新面板'
+        })
 
     return check_result
 }
@@ -140,15 +140,15 @@ async function check_youtube_premium() {
 
     await inner_check()
         .then((code) => {
-        if (code === 'Not Available') {
-            youtube_check_result += '不支持解锁'
-        } else {
-            youtube_check_result += '已解锁，区域: ' + code
-        }
-    })
+            if (code === 'Not Available') {
+                youtube_check_result += '不支持解锁'
+            } else {
+                youtube_check_result += '已解锁，区域: ' + code
+            }
+        })
         .catch((error) => {
-        youtube_check_result += '检测失败，请刷新面板'
-    })
+            youtube_check_result += '检测失败，请刷新面板'
+        })
 
     return youtube_check_result
 }
@@ -199,37 +199,37 @@ async function check_netflix() {
 
     await inner_check(81280792)
         .then((code) => {
-        if (code === 'Not Found') {
-            return inner_check(80018499)
-        }
-        netflix_check_result += '完整解锁，区域: ' + code
-        return Promise.reject('BreakSignal')
-    })
+            if (code === 'Not Found') {
+                return inner_check(80018499)
+            }
+            netflix_check_result += '完整解锁，区域: ' + code
+            return Promise.reject('BreakSignal')
+        })
         .then((code) => {
-        if (code === 'Not Found') {
-            return Promise.reject('Not Available')
-        }
+            if (code === 'Not Found') {
+                return Promise.reject('Not Available')
+            }
 
-        netflix_check_result += '仅自制剧，区域: ' + code
-        return Promise.reject('BreakSignal')
-    })
+            netflix_check_result += '仅自制剧，区域: ' + code
+            return Promise.reject('BreakSignal')
+        })
         .catch((error) => {
-        if (error === 'BreakSignal') {
-            return
-        }
-        if (error === 'Not Available') {
-            netflix_check_result += '该节点不支持解锁'
-            return
-        }
-        netflix_check_result += '检测失败，请刷新面板'
-    })
+            if (error === 'BreakSignal') {
+                return
+            }
+            if (error === 'Not Available') {
+                netflix_check_result += '该节点不支持解锁'
+                return
+            }
+            netflix_check_result += '检测失败，请刷新面板'
+        })
 
     return netflix_check_result
 }
 
 async function testDisneyPlus() {
     try {
-        let {region, cnbl} = await Promise.race([testHomePage(), timeout(7000)])
+        let { region, cnbl } = await Promise.race([testHomePage(), timeout(7000)])
 
         let { countryCode, inSupportedLocation } = await Promise.race([getLocationInfo(), timeout(7000)])
 
@@ -243,21 +243,21 @@ async function testDisneyPlus() {
 
         // 即将登陆
         if (inSupportedLocation === false || inSupportedLocation === 'false') {
-            return {region, status: STATUS_COMING}
+            return { region, status: STATUS_COMING }
         } else {
-            return {region, status: STATUS_AVAILABLE}
+            return { region, status: STATUS_AVAILABLE }
         }
 
     } catch (error) {
         if (error === 'Not Available') {
-            return {status: STATUS_NOT_AVAILABLE}
+            return { status: STATUS_NOT_AVAILABLE }
         }
 
         if (error === 'Timeout') {
-            return {status: STATUS_TIMEOUT}
+            return { status: STATUS_TIMEOUT }
         }
 
-        return {status: STATUS_ERROR}
+        return { status: STATUS_ERROR }
     }
 
 }
@@ -306,19 +306,19 @@ function getLocationInfo() {
             }
 
             data = JSON.parse(data)
-            if(data?.errors){
+            if (data?.errors) {
                 reject('Not Available')
                 return
             }
 
             let {
-                token: {accessToken},
+                token: { accessToken },
                 session: {
                     inSupportedLocation,
-                    location: {countryCode},
+                    location: { countryCode },
                 },
             } = data?.extensions?.sdk
-            resolve({inSupportedLocation, countryCode, accessToken})
+            resolve({ inSupportedLocation, countryCode, accessToken })
         })
     })
 }
@@ -345,13 +345,13 @@ function testHomePage() {
 
             let match = data.match(/Region: ([A-Za-z]{2})[\s\S]*?CNBL: ([12])/)
             if (!match) {
-                resolve({region: '', cnbl: ''})
+                resolve({ region: '', cnbl: '' })
                 return
             }
 
             let region = match[1]
             let cnbl = match[2]
-            resolve({region, cnbl})
+            resolve({ region, cnbl })
         })
     })
 }
@@ -365,7 +365,7 @@ function timeout(delay = 5000) {
 }
 
 function getIcon(code, icons) {
-    if (code != null && code.length === 2){
+    if (code != null && code.length === 2) {
         for (let i = 0; i < icons.length; i++) {
             if (icons[i][0] === code) {
                 return icons[i][1] + code
@@ -376,10 +376,10 @@ function getIcon(code, icons) {
 }
 
 function formatLocalDate(date) {
-	return (
-		date.getFullYear() + '-' +
-		(date.getMonth() + 1).toString().padStart(2, '0') + '-' +
-		date.getDate().toString().padStart(2, '0') + ' ' +
-		date.toTimeString().split(' ')[0]
-	);
+    return (
+        date.getFullYear() + '-' +
+        (date.getMonth() + 1).toString().padStart(2, '0') + '-' +
+        date.getDate().toString().padStart(2, '0') + ' ' +
+        date.toTimeString().split(' ')[0]
+    );
 }
