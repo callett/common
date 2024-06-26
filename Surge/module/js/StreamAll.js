@@ -102,11 +102,11 @@ async function check_chatgpt() {
             if (code === 'Not Available') {
                 check_result += '不支持解锁'
             } else {
-                check_result += '已解锁，区域: ' + code.toUpperCase()
+                check_result += '已解锁,区域: ' + code.toUpperCase()
             }
         })
         .catch((error) => {
-            check_result += '检测失败，请刷新面板'
+            check_result += '检测失败,请刷新面板'
         })
 
     return check_result
@@ -152,11 +152,11 @@ async function check_youtube_premium() {
             if (code === 'Not Available') {
                 youtube_check_result += '不支持解锁'
             } else {
-                youtube_check_result += '已解锁，区域: ' + code
+                youtube_check_result += '已解锁,区域: ' + code
             }
         })
         .catch((error) => {
-            youtube_check_result += '检测失败，请刷新面板'
+            youtube_check_result += '检测失败,请刷新面板'
         })
 
     return youtube_check_result
@@ -211,7 +211,7 @@ async function check_netflix() {
             if (code === 'Not Found') {
                 return inner_check(80018499)
             }
-            netflix_check_result += '完整解锁，区域: ' + code
+            netflix_check_result += '已完整解锁,区域: ' + code
             return Promise.reject('BreakSignal')
         })
         .then((code) => {
@@ -219,7 +219,7 @@ async function check_netflix() {
                 return Promise.reject('Not Available')
             }
 
-            netflix_check_result += '仅自制剧，区域: ' + code
+            netflix_check_result += '仅解锁自制剧,区域: ' + code
             return Promise.reject('BreakSignal')
         })
         .catch((error) => {
@@ -230,7 +230,7 @@ async function check_netflix() {
                 netflix_check_result += '该节点不支持解锁'
                 return
             }
-            netflix_check_result += '检测失败，请刷新面板'
+            netflix_check_result += '检测失败,请刷新面板'
         })
 
     return netflix_check_result
