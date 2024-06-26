@@ -24,13 +24,13 @@ const ICONS = [
 let content = ''
 !(async () => {
     let [{ region, status }] = await Promise.all([testDisneyPlus()])
-    await Promise.all([check_chatgpt(), check_youtube_premium(), check_netflix()])
+    await Promise.all([check_chatgpt(), check_netflix(), check_youtube_premium()])
         .then((result) => {
             let disney_result = ''
             if (status == STATUS_COMING) {
                 disney_result = 'Disney+: 即将登陆~' + region
             } else if (status == STATUS_AVAILABLE) {
-                disney_result = 'Disney+: 已解锁，区域: ' + region
+                disney_result = 'Disney+: 已解锁,区域: ' + region
             } else if (status == STATUS_NOT_AVAILABLE) {
                 disney_result = 'Disney+: 未支持 🚫 '
             } else if (status == STATUS_TIMEOUT) {
