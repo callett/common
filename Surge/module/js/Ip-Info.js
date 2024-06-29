@@ -41,8 +41,9 @@ let content = ''
 	['country', 'city'].forEach(key => {
 		geo.push(`${$.lodash_get(info, key) || ' - '}`)
 	})
-	geo = geo.length > 0 ? `${geo.join(' ')}\n` : ''
-	geo = 'IP位置: ' + getIcon(geo.substring(0, 2), ICONS) + geo
+	let cn = getCn(geo)
+	// geo = geo.length > 0 ? `${geo.join(' ')}\n` : ''
+	geo = 'IP位置: ' + getIcon(geo[0], ICONS) + cn
 	let company = [];
 	['name'].forEach(key => {
 		company.push(
@@ -125,6 +126,30 @@ function getIcon(code, icons) {
 		}
 	}
 	return ''
+}
+
+function getCn(geo) {
+	if(0 !== geo.length) {
+		let country = geo[0], city = geo[1] 
+		if(null !== country || '' !== country) {
+			if('US' == country) {
+				country = '美国'
+			} else if('JP' == country) {
+				country = '日本'
+			}
+		}
+		if(null !== city || '' !== city) {
+			if('Los Angeles' == city) {
+				city = '洛杉矶'
+			} else if('Tokyo' == city) {
+				city = '东京'
+			}
+		}
+		geo = country + ' ' + city + '\n'
+	} else {
+		geo = ''
+	}
+	return geo;
 }
 
 async function http() {
