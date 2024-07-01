@@ -16,18 +16,14 @@ if (typeof $argument != 'undefined') {
 let title = 'IP信息查询'
 let content = ''
 !(async () => {
-	if ($.isTile()) {
-		await notify('IP信息查询', '面板', '开始查询')
-	}
 	let [info] = await Promise.all([getInfo()])
-	$.log($.toStr(info))
 	const ip = $.lodash_get(info, 'ip') || ' - '
 	let par = [], ping
 	try {
 		for (let i = 0; i < 2; i++) {
 			par.push(parseFloat(await http()));
 		}
-		if(2 === par.length) {
+		if (2 === par.length) {
 			let res = par[0] > par[1] ? par[1] : par[0]
 			ping = ': ' + res + 'ms';
 		} else {
@@ -41,9 +37,8 @@ let content = ''
 	['country', 'city'].forEach(key => {
 		geo.push(`${$.lodash_get(info, key) || ' - '}`)
 	})
-	let cn = getCn(geo)
-	// geo = geo.length > 0 ? `${geo.join(' ')}\n` : ''
-	geo = 'IP位置: ' + getIcon(geo[0], ICONS) + cn
+	let cnText = await Promise.all([getCnText()])
+	geo = 'IP位置: ' + getIcon(geo[0], ICONS) + cnText
 	let company = [];
 	['name'].forEach(key => {
 		company.push(
@@ -75,11 +70,6 @@ let content = ''
 	company = company.length > 0 ? `${company.join('\n')}\n` : ''
 	let time = '\n执行时间: ' + formatLocalDate(new Date())
 	content = ipInfo + `${geo}${company}${asn}${type}` + time
-	if ($.isTile()) {
-		await notify('IP信息查询', '面板', '查询完成')
-	} else if (!$.isPanel()) {
-		await notify('IP信息查询', title, content)
-	}
 })()
 	.catch(async e => {
 		$.logErr(e)
@@ -87,7 +77,6 @@ let content = ''
 		const msg = `${$.lodash_get(e, 'message') || $.lodash_get(e, 'error') || e}`
 		title = `❌`
 		content = msg
-		await notify('IP信息查询', title, content)
 	})
 	.finally(async () => {
 		const result = {
@@ -96,17 +85,8 @@ let content = ''
 			icon: "globe.asia.australia",
 			'icon-color': '#3D90ED'
 		}
-		$.log($.toStr(result))
 		$.done(result)
 	})
-
-async function notify(title, subt, desc, opts) {
-	if ($.lodash_get(arg, 'notify')) {
-		$.msg(title, subt, desc, opts)
-	} else {
-		$.log('🔕', title, subt, desc, opts)
-	}
-}
 
 function formatLocalDate(date) {
 	return (
@@ -128,28 +108,27 @@ function getIcon(code, icons) {
 	return ''
 }
 
-function getCn(geo) {
-	if(0 !== geo.length) {
-		let country = geo[0], city = geo[1] 
-		if(null !== country || '' !== country) {
-			if('US' == country) {
-				country = '美国'
-			} else if('JP' == country) {
-				country = '日本'
-			}
+async function getCnText() {
+	let text = ''
+	try {
+		const response = await $.http.get({
+			url: `https://ping0.cc/geo/`,
+			headers: {
+				Referer: 'https://ping0.cc/geo/',
+				'User-Agent': 'Mozilla/5.0 (iPhone CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/109.0.0.0',
+			},
+		})
+		let body = $.lodash_get(response, 'body')
+		let a = Array.from(new Set(body.split('\n')[1].split(' ')))
+		text = a.length > 0 ? a.join(' ') : text
+		if (text.search('—') != -1) {
+			text = text.substring(0, text.indexOf('—')).trim();
 		}
-		if(null !== city || '' !== city) {
-			if('Los Angeles' == city) {
-				city = '洛杉矶'
-			} else if('Tokyo' == city) {
-				city = '东京'
-			}
-		}
-		geo = country + ' ' + city + '\n'
-	} else {
-		geo = ''
+	} catch (e) {
+		$.logErr(e)
+		$.logErr($.toStr(e))
 	}
-	return geo;
+	return text + '\n'
 }
 
 async function http() {
