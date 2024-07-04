@@ -68,8 +68,8 @@ let content = ''
 		type = type.replace(asnTs, '企业商务')
 	}
 	company = company.length > 0 ? `${company.join('\n')}\n` : ''
-	let time = '\n执行时间: ' + formatLocalDate(new Date())
-	content = ipInfo + `${geo}${company}${asn}${type}` + time
+	// let time = '\n执行时间: ' + formatLocalDate(new Date())
+	content = ipInfo + `${geo}${company}${asn}${type}`
 })()
 	.catch(async e => {
 		$.logErr(e)
