@@ -50,7 +50,7 @@ let content = ''
         if (null == content || '' == content) {
             content = '检测出错，请刷新重试'
         }
-        content += '\n执行时间: ' + formatLocalDate(new Date())
+        // content += '\n执行时间: ' + formatLocalDate(new Date())
         let panel_result = {
             title: '流媒体解锁检测',
             content: content,
