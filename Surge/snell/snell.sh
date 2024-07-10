@@ -654,11 +654,11 @@ Change_stls() {
 checkSystem
 menu() {
 	clear
-	echo "######################################################"
-	echo -e "#      ${RED}Snell一键安装脚本${PLAIN}                             #"
-	echo -e "# ${GREEN}作者${PLAIN}: 觉皇(Zeus)                                   #"
-    echo -e "# ${GREEN}网址${PLAIN}: https://github.com/chen-zeus/zeus/tree/main  #"
-	echo "######################################################"
+	echo "#####################################################"
+	echo -e "#      ${RED}Snell一键安装脚本${PLAIN}                            #"
+	echo -e "# ${GREEN}作者${PLAIN}: 觉皇(Zeus)                                  #"
+    echo -e "# ${GREEN}网址${PLAIN}: https://github.com/chen-zeus/zeus/tree/main #"
+	echo "#####################################################"
 	echo " ----------------------"
 	echo -e "  ${GREEN}1.${PLAIN}  安装Snell"
 	echo -e "  ${GREEN}2.${PLAIN}  ${RED}卸载Snell${PLAIN}"
