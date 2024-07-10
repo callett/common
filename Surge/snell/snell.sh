@@ -118,6 +118,7 @@ status_stls() {
 }
 
 statusText() {
+    '\n'
     res=`status`
     res2=`status_stls`
     case ${res}${res2} in
@@ -673,7 +674,7 @@ menu() {
 	echo " ----------------------"
 	echo -e "  ${GREEN}0.${PLAIN}  退出"
 	echo ""
-	echo -n " 当前状态：" + "\n"
+	echo -n " 当前状态："
 	statusText
 	echo 
 
