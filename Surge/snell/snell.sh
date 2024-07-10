@@ -118,7 +118,6 @@ status_stls() {
 }
 
 statusText() {
-    '\n'
     res=`status`
     res2=`status_stls`
     case ${res}${res2} in
@@ -675,7 +674,8 @@ menu() {
 	echo -e "  ${GREEN}0.${PLAIN}  退出"
 	echo ""
 	echo -n " 当前状态："
-	statusText
+	echo ""
+    statusText
 	echo 
 
 	read -p " 请选择操作[0-11]：" answer
