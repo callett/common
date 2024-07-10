@@ -214,7 +214,7 @@ Download_snell(){
     rm -rf /etc/snell /tmp/snell
     mkdir -p /etc/snell /tmp/snell
     archAffix
-    DOWNLOAD_LINK="https://raw.githubusercontent.com/Slotheve/Snell/main/snell-server-${VER}-linux-${CPU}.zip"
+    DOWNLOAD_LINK="https://raw.githubusercontent.com/chen-zeus/zeus/main/Surge/snell/snell-server-${VER}-linux-${CPU}.zip"
     colorEcho $YELLOW "下载Snell: ${DOWNLOAD_LINK}"
     curl -L -H "Cache-Control: no-cache" -o /tmp/snell/snell.zip ${DOWNLOAD_LINK}
     unzip /tmp/snell/snell.zip -d /tmp/snell/
@@ -656,9 +656,7 @@ menu() {
 	clear
 	echo "################################"
 	echo -e "#      ${RED}Snell一键安装脚本${PLAIN}       #"
-	echo -e "# ${GREEN}作者${PLAIN}: 怠惰(Slotheve)         #"
-	echo -e "# ${GREEN}网址${PLAIN}: https://slotheve.com   #"
-	echo -e "# ${GREEN}频道${PLAIN}: https://t.me/SlothNews #"
+	echo -e "# ${GREEN}作者${PLAIN}: 觉皇(Zeus)         #"
 	echo "################################"
 	echo " ----------------------"
 	echo -e "  ${GREEN}1.${PLAIN}  安装Snell"
