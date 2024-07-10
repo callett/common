@@ -656,7 +656,7 @@ menu() {
 	clear
 	echo "################################"
 	echo -e "#      ${RED}Snell一键安装脚本${PLAIN}       #"
-	echo -e "# ${GREEN}作者${PLAIN}: 觉皇(Zeus)         #"
+	echo -e "# ${GREEN}作者${PLAIN}: 觉皇(Zeus)           #"
 	echo "################################"
 	echo " ----------------------"
 	echo -e "  ${GREEN}1.${PLAIN}  安装Snell"
@@ -672,7 +672,7 @@ menu() {
 	echo " ----------------------"
 	echo -e "  ${GREEN}0.${PLAIN}  退出"
 	echo ""
-	echo -n " 当前状态："
+	echo -n " 当前状态：\n"
 	statusText
 	echo 
 
