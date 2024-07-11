@@ -17,11 +17,11 @@ apt update && apt install wget && apt install unzip
 3.下载 Snell Server
 AMD:
 ```
-wget https://dl.nssurge.com/snell/snell-server-v4.0.1-linux-amd64.zip
+wget https://raw.githubusercontent.com/chen-zeus/zeus/main/Surge/snell/snell-server-v4.0.1-linux-amd64.zip
 ```
 ARM:
 ```
-wget https://dl.nssurge.com/snell/snell-server-v4.0.1-linux-aarch64.zip
+wget https://raw.githubusercontent.com/chen-zeus/zeus/main/Surge/snell/snell-server-v4.0.1-linux-aarch64.zip
 ```
 4.解压 Snell Server 到指定目录
 AMD:
