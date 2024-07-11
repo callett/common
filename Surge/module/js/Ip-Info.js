@@ -18,21 +18,21 @@ let content = ''
 !(async () => {
 	let [info] = await Promise.all([getInfo()])
 	const ip = $.lodash_get(info, 'ip') || ' - '
-	// let par = [], ping
-	// try {
-	// 	for (let i = 0; i < 2; i++) {
-	// 		par.push(parseFloat(await http()));
-	// 	}
-	// 	if (2 === par.length) {
-	// 		let res = par[0] > par[1] ? par[1] : par[0]
-	// 		ping = ': ' + res + 'ms';
-	// 	} else {
-	// 		ping = ': ' + par[0] + 'ms';
-	// 	}
-	// } catch (i) {
-	// 	console.log(i.message);
-	// }
-	let ipInfo = `IP地址: ${ip}\n`
+	let par = [], ping
+	try {
+		for (let i = 0; i < 2; i++) {
+			par.push(parseFloat(await http()));
+		}
+		if (2 === par.length) {
+			let res = par[0] > par[1] ? par[1] : par[0]
+			ping = ': ' + res + 'ms';
+		} else {
+			ping = ': ' + par[0] + 'ms';
+		}
+	} catch (i) {
+		console.log(i.message);
+	}
+	let ipInfo = `IP地址: ${ip}${ping}\n`
 	let geo = [];
 	['country', 'city'].forEach(key => {
 		geo.push(`${$.lodash_get(info, key) || ' - '}`)
