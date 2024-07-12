@@ -1,9 +1,0 @@
-#!name = IP信息查询
-#!desc = IP-INFO ASN类型
-#!author = ZEUS
-
-[Script]
-Ip-Info = type=generic,timeout=60,script-path=https://raw.githubusercontent.com/chen-zeus/zeus/main/Surge/module/js/Ip-Info.js,argument=icon=info.circle.fill&icon-color=#5d84f8
-
-[Panel]
-Ip-Info = script-name=Ip-Info,update-interval=-1
