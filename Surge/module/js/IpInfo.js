@@ -7,12 +7,6 @@ const ICONS = [
 $.isPanel = () => $.isSurge() && typeof $input != 'undefined' && $.lodash_get($input, 'purpose') === 'panel'
 $.isTile = () => $.isStash() && typeof $script != 'undefined' && $.lodash_get($script, 'type') === 'tile'
 
-let arg
-if (typeof $argument != 'undefined') {
-	arg = Object.fromEntries($argument.split('&')
-		.map(item => item.split('=')))
-}
-
 let title = 'IP信息查询'
 let content = ''
 !(async () => {
