@@ -19,9 +19,9 @@ let content = ''
 	// 	}
 	// 	if (2 === par.length) {
 	// 		let res = par[0] > par[1] ? par[1] : par[0]
-	// 		ping = ': ' + res + 'ms\n';
+	// 		ping = ': ' + res + 'ms';
 	// 	} else {
-	// 		ping = ': ' + par[0] + 'ms\n';
+	// 		ping = ': ' + par[0] + 'ms';
 	// 	}
 	// } catch (i) {
 	// 	console.log(i.message);
@@ -31,7 +31,7 @@ let content = ''
 		let arg = Object.fromEntries($argument.split("&").map((item) => item.split("=")));
 		if (arg.state) state = arg.state;
 	}
-	let ipInfo = 'IP地址: ' + getMask(ip, state)
+	let ipInfo = 'IP地址: ' + getMask(ip, state) + '\n'
 	let geo = [];
 	['country', 'city'].forEach(key => {
 		geo.push(`${$.lodash_get(info, key) || ' - '}`)
