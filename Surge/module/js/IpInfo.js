@@ -12,26 +12,26 @@ let content = ''
 !(async () => {
 	let [info] = await Promise.all([getInfo()])
 	const ip = $.lodash_get(info, 'ip') || ' - '
-	let par = [], ping
-	try {
-		for (let i = 0; i < 2; i++) {
-			par.push(parseFloat(await http()));
-		}
-		if (2 === par.length) {
-			let res = par[0] > par[1] ? par[1] : par[0]
-			ping = ': ' + res + 'ms\n';
-		} else {
-			ping = ': ' + par[0] + 'ms\n';
-		}
-	} catch (i) {
-		console.log(i.message);
-	}
+	// let par = [], ping
+	// try {
+	// 	for (let i = 0; i < 2; i++) {
+	// 		par.push(parseFloat(await http()));
+	// 	}
+	// 	if (2 === par.length) {
+	// 		let res = par[0] > par[1] ? par[1] : par[0]
+	// 		ping = ': ' + res + 'ms\n';
+	// 	} else {
+	// 		ping = ': ' + par[0] + 'ms\n';
+	// 	}
+	// } catch (i) {
+	// 	console.log(i.message);
+	// }
 	let state = 0;
 	if (typeof $argument != "undefined") {
 		let arg = Object.fromEntries($argument.split("&").map((item) => item.split("=")));
 		if (arg.state) state = arg.state;
 	}
-	let ipInfo = 'IP地址: ' + getMask(ip, state) + ping
+	let ipInfo = 'IP地址: ' + getMask(ip, state)
 	let geo = [];
 	['country', 'city'].forEach(key => {
 		geo.push(`${$.lodash_get(info, key) || ' - '}`)
@@ -67,8 +67,8 @@ let content = ''
 		type = type.replace(asnTs, '企业商务')
 	}
 	company = company.length > 0 ? `${company.join('\n')}\n` : ''
-	let time = '\n执行时间: ' + formatLocalDate(new Date())
-	content = ipInfo + `${geo}${company}${asn}${type}` + time
+	// let time = '\n执行时间: ' + formatLocalDate(new Date())
+	content = ipInfo + `${geo}${company}${asn}${type}`
 })()
 	.catch(async e => {
 	$.logErr(e)
