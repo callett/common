@@ -138,9 +138,14 @@ async function getCnText() {
 		})
 		let body = $.lodash_get(response, 'body')
 		let a = Array.from(new Set(body.split('\n')[1].split(' ')))
-		text = a.length > 0 ? a.join(' ') : text
-		if (text.search('—') != -1) {
-			text = text.substring(0, text.indexOf('—')).trim();
+		if(a.includes('—')) {
+			let index = a.indexOf('—');
+			a.splice(index, (a.length - index));
+		}
+		if(3 == a.length) {
+			text = a[0] + ' ' + a[2]
+		} else {
+			text = a.length > 0 ? a.join(' ') : text
 		}
 	} catch (e) {
 		$.logErr(e)
