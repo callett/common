@@ -19,4 +19,4 @@ DOMAIN-SUFFIX,snssdk.com
 DOMAIN-SUFFIX,toutiao.com
 DOMAIN-SUFFIX,douyin.com
 DOMAIN-SUFFIX,zijieapi.com
-IP-CIDR,224.0.0.0/3
+IP-CIDR,224.0.0.0/3,no-resolve
