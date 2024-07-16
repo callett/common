@@ -1,8 +1,8 @@
 # NAME: DouYin
 # AUTHOR: ZEUS
 # DOMAIN: 2
-# DOMAIN-SUFFIX: 11
-# TOTAL: 13
+# DOMAIN-SUFFIX: 13
+# TOTAL: 15
 DOMAIN,lf3-static.bytednsdoc.com
 DOMAIN,v5-dy-o-abtest.zjcdn.com
 DOMAIN-SUFFIX,amemv.com
@@ -17,3 +17,4 @@ DOMAIN-SUFFIX,pstatp.com
 DOMAIN-SUFFIX,snssdk.com
 DOMAIN-SUFFIX,toutiao.com
 DOMAIN-SUFFIX,douyin.com
+DOMAIN-SUFFIX,zijieapi.com
