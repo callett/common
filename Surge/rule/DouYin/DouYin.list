@@ -2,7 +2,8 @@
 # AUTHOR: ZEUS
 # DOMAIN: 2
 # DOMAIN-SUFFIX: 13
-# TOTAL: 15
+# IP-CIDR: 1
+# TOTAL: 16
 DOMAIN,lf3-static.bytednsdoc.com
 DOMAIN,v5-dy-o-abtest.zjcdn.com
 DOMAIN-SUFFIX,amemv.com
@@ -18,3 +19,4 @@ DOMAIN-SUFFIX,snssdk.com
 DOMAIN-SUFFIX,toutiao.com
 DOMAIN-SUFFIX,douyin.com
 DOMAIN-SUFFIX,zijieapi.com
+IP-CIDR,224.0.0.0/3
