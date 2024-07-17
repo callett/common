@@ -1,7 +1,7 @@
 # NAME: Hetzner
 # AUTHOR: ZEUS
-# DOMAIN-SUFFIX: 8
-# TOTAL: 8
+# DOMAIN-SUFFIX: 17
+# TOTAL: 17
 DOMAIN-SUFFIX,www.hetzner.com
 DOMAIN-SUFFIX,sentry.hetzner.company
 DOMAIN-SUFFIX,api.hetzner.cloud
@@ -10,3 +10,12 @@ DOMAIN-SUFFIX,accounts.hetzner.com
 DOMAIN-SUFFIX,konsoleh.hetzner.com
 DOMAIN-SUFFIX,dns.hetzner.com
 DOMAIN-SUFFIX,robot.hetzner.com
+DOMAIN-SUFFIX,use.hetzner.com
+DOMAIN-SUFFIX,content.hetzner.cloud
+DOMAIN-SUFFIX,api.hetzner.cloud
+DOMAIN-SUFFIX,www.computop-paygate.com
+DOMAIN-SUFFIX,cdn.hetzner.com
+DOMAIN-SUFFIX,docs.hetzner.com
+DOMAIN-SUFFIX,www.hetzner.de
+DOMAIN-SUFFIX,webmail.your-server.de
+DOMAIN-SUFFIX,robot.your-server.de
