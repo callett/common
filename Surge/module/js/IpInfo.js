@@ -47,7 +47,7 @@ let content = ''
 	let asn = [];
 	['org'].forEach(key => {
 		asn.push(
-			`ASN${key === 'name' ? '' : ` ${key.toUpperCase()}`}:     ${$.lodash_get(info, `asn.${key}`) || ' - '}`
+			`ASN${key === 'org' ? '' : ` ${key.toUpperCase()}`}:     ${$.lodash_get(info, `asn.${key}`) || ' - '}`
 		)
 	})
 	asn = asn.length > 0 ? `${asn}\n` : ''
