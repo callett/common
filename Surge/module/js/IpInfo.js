@@ -33,7 +33,7 @@ let content = ''
 	}
 	let ipInfo = 'IP地址: ' + getMask(ip, state) + '\n'
 	let geo = [];
-	['country', 'city'].forEach(key => {
+	['country_code', 'city'].forEach(key => {
 		geo.push(`${$.lodash_get(info, `location.${key}`) || ' - '}`)
 	})
 	let cnText = await Promise.all([getCnText()])
