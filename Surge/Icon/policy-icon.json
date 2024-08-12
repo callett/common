@@ -170,7 +170,8 @@
       {"name":"youtube", "url":"https://raw.githubusercontent.com/chen-zeus/zeus/main/Surge/Icon/policy/youtube.png"},
       {"name":"youtube01", "url":"https://raw.githubusercontent.com/chen-zeus/zeus/main/Surge/Icon/policy/youtube01.png"},
       {"name":"zijie", "url":"https://raw.githubusercontent.com/chen-zeus/zeus/main/Surge/Icon/policy/zijie.png"},
-      {"name":"binance", "url":"https://raw.githubusercontent.com/chen-zeus/zeus/main/Surge/Icon/policy/binance.png"}
+      {"name":"binance", "url":"https://raw.githubusercontent.com/chen-zeus/zeus/main/Surge/Icon/policy/binance.png"},
+      {"name":"hetzner", "url":"https://raw.githubusercontent.com/chen-zeus/zeus/main/Surge/Icon/policy/hetzner.png"}
     ]
  }
   
