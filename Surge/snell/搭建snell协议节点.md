@@ -17,11 +17,11 @@ apt update && apt install wget && apt install unzip
 3.下载 Snell Server
 AMD:
 ```
-wget https://raw.githubusercontent.com/chen-zeus/zeus/main/Surge/snell/snell-server-v4.0.1-linux-amd64.zip
+wget https://raw.githubusercontent.com/chen-zeus/zeus/main/Surge/snell/v4.0.1/snell-server-v4.0.1-linux-amd64.zip
 ```
 ARM:
 ```
-wget https://raw.githubusercontent.com/chen-zeus/zeus/main/Surge/snell/snell-server-v4.0.1-linux-aarch64.zip
+wget https://raw.githubusercontent.com/chen-zeus/zeus/main/Surge/snell/v4.0.1/snell-server-v4.0.1-linux-aarch64.zip
 ```
 4.解压 Snell Server 到指定目录
 AMD:
@@ -59,12 +59,9 @@ ipv6 = false
 ```
 参数说明
 listen：监听地址及端口； psk：密钥； ipv6：如果需要 IPv6 支持将值为 – true
-7.配置 Systemd 服务文件
+7.配置 Systemd 服务文件, 服务文件内容
 ```
-vim /lib/systemd/system/snell.service
-```
-服务文件内容
-```
+cat > /lib/systemd/system/snell.service << EOF
 [Unit]
 Description=Snell Proxy Service
 After=network.target
@@ -82,6 +79,7 @@ SyslogIdentifier=snell-server
 
 [Install]
 WantedBy=multi-user.target
+EOF
 ```
 8.重载服务
 ```
@@ -118,5 +116,5 @@ cat /etc/snell/snell-server.conf
 
 Surge相应配置
 ```
-AWS-EC2-SG = snell, XXX.XXX.XXX.XXX, 11807, psk=AijHCeos15IvqDZTb1cJMX5GcgZzIVE, version=4, tfo=true
+snell = snell, XXX.XXX.XXX.XXX, 11807, psk=AijHCeos15IvqDZTb1cJMX5GcgZzIVE, version=4, tfo=true
 ```
