@@ -50,7 +50,7 @@ let content = ''
         if (null == content || '' == content) {
             content = '检测出错，请刷新重试'
         }
-        // content += '\n执行时间: ' + formatLocalDate(new Date())
+        content += '\n执行时间: ' + new Date().toTimeString().split(' ')[0]
         let panel_result = {
             title: '流媒体解锁检测',
             content: content,
@@ -90,7 +90,7 @@ async function check_chatgpt() {
                 } else {
                     region = 'US'
                 }
-                resolve(getIcon(result, ICONS))
+                resolve(getIcon(region, ICONS))
             })
         })
     }
@@ -382,13 +382,4 @@ function getIcon(code, icons) {
         }
     }
     return code
-}
-
-function formatLocalDate(date) {
-    return (
-        date.getFullYear() + '-' +
-        (date.getMonth() + 1).toString().padStart(2, '0') + '-' +
-        date.getDate().toString().padStart(2, '0') + ' ' +
-        date.toTimeString().split(' ')[0]
-    );
 }
