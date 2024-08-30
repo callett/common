@@ -1,0 +1,11 @@
+# NAME: Software Update
+# AUTHOR: ZEUS
+# DOMAIN-SUFFIX: 7
+# TOTAL: 
+# DOMAIN-SUFFIX,swdist.apple.com
+# DOMAIN-SUFFIX,swscan.apple.com
+# DOMAIN-SUFFIX,swcdn.apple.com
+DOMAIN-SUFFIX,gdmf.apple.com
+DOMAIN-SUFFIX,mesu.apple.com
+DOMAIN-SUFFIX,xp.apple.com
+DOMAIN-SUFFIX,updates-http.cdn-apple.com
