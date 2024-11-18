@@ -2,7 +2,7 @@
 # AUTHOR: ZEUS
 # DOMAIN: 15
 # DOMAIN-KEYWORD: 9
-# DOMAIN-SUFFIX: 3676
+# DOMAIN-SUFFIX: 3675
 # IP-CIDR: 17
 # IP-CIDR6: 4
 # USER-AGENT: 31
@@ -611,13 +611,11 @@ DOMAIN-SUFFIX,bocim.com
 DOMAIN-SUFFIX,bohejiasuqi.com
 DOMAIN-SUFFIX,bojianger.com
 DOMAIN-SUFFIX,bokecc.com
-DOMAIN-SUFFIX,booking.com
 DOMAIN-SUFFIX,boosj.com
 DOMAIN-SUFFIX,bootcdn.net
 DOMAIN-SUFFIX,bootcss.com
 DOMAIN-SUFFIX,bosera.com
 DOMAIN-SUFFIX,broadcasthe.net
-DOMAIN-SUFFIX,browserleaks.com
 DOMAIN-SUFFIX,bstatic.com
 DOMAIN-SUFFIX,btcfans.com
 DOMAIN-SUFFIX,btgtravel.com
@@ -3559,6 +3557,7 @@ DOMAIN-SUFFIX,yoyou.com
 DOMAIN-SUFFIX,ypppt.com
 DOMAIN-SUFFIX,yqb.com
 DOMAIN-SUFFIX,yrz.name
+DOMAIN-SUFFIX,ysepay.com
 DOMAIN-SUFFIX,yslyhr.com
 DOMAIN-SUFFIX,ysten.com
 DOMAIN-SUFFIX,ytzq.com
