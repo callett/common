@@ -6,7 +6,7 @@ if [ "$EUID" -ne 0 ]; then
   exit 1
 fi
 
-# 安装必要的工具
+# 安装必要的软件包
 echo "安装必要的软件包..."
 apt update && apt install -y wget unzip vim
 
@@ -77,6 +77,9 @@ systemctl daemon-reload
 systemctl enable snell
 systemctl restart snell
 
+# 获取服务器的 IP 地址
+SERVER_IP=$(hostname -I | awk '{print $1}')
+
 # 打印配置信息
 echo "Snell Server 安装和配置完成！"
 echo "----------------------------------------"
@@ -84,5 +87,5 @@ echo "Snell 配置信息："
 echo "监听地址：0.0.0.0:${PORT}"
 echo "PSK 密钥：${PSK}"
 echo "Surge 配置："
-echo "snell = snell, <你的服务器IP>, ${PORT}, psk=${PSK}, version=4, tfo=true"
+echo "snell = snell, ${SERVER_IP}, ${PORT}, psk=${PSK}, version=4, tfo=true"
 echo "----------------------------------------"
