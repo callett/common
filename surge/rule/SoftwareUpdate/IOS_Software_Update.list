@@ -1,0 +1,8 @@
+# NAME: IOS Software Update
+# AUTHOR: ZEUS
+# DOMAIN-SUFFIX: 
+# TOTAL: 4
+DOMAIN-SUFFIX,gdmf.apple.com
+DOMAIN-SUFFIX,mesu.apple.com
+DOMAIN-SUFFIX,xp.apple.com
+DOMAIN-SUFFIX,updates-http.cdn-apple.com

@@ -1,0 +1,9 @@
+#!name = VPS监控
+#!desc = 监控VPS流量信息和处理器、内存占用情况
+#!howto = 将模块内容复制到本地后根据自己VPS IP地址及端口修改http://127.0.0.1:49155/traffic部分进行使用,ddl=后面接你的VPS到期时间,total=输入你的VPS每月流量数目
+
+[Panel]
+VPS监控 = script-name=VPS监控
+
+[Script]
+VPS监控 = type=generic,script-path=https://raw.githubusercontent.com/chen-zeus/zeus/main/Surge/module/js/CatVPS.js, argument=url=http://127.0.0.1:49155/traffic&title=CAT VPS&icon=bolt.horizontal.icloud.fill&low=#06D6A0&mid=#FFD166&high=#EF476F&ddl=2024-07-11&total=1000G

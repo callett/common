@@ -1,0 +1,8 @@
+#!name = General Enhanced
+#!desc = (iOS版) 1.跳过代理 2.返回真实IP段
+#!system = ios
+#!author = ZEUS
+
+[General]
+skip-proxy = 192.168.0.0/24, 10.0.0.0/8, 172.16.0.0/12, 127.0.0.1, localhost, *.local
+always-real-ip = *.srv.nintendo.net, *.stun.playstation.net, xbox.*.microsoft.com, *.xboxlive.com*.srv.nintendo.net, *.stun.playstation.net, xbox.*.microsoft.com, *.xboxlive.com, *.battlenet.com.cn, *.battlenet.com, *.blzstatic.cn, *.battle.net
