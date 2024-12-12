@@ -1,6 +1,0 @@
-#!name=GlobalMedia MITM (1)
-# AUTHOR: ZEUS
-#!repo=https://github.com/blackmatrix7/ios_rule_script
-
-[MITM]
-hostname = %APPEND% www.amazon.com

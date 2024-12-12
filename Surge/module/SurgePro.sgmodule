@@ -1,8 +1,0 @@
-#!name = Surge Pro
-#!desc = 显示Surge的启动时间
-
-[Script]
-SurgePro = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/chen-zeus/zeus/main/Surge/module/js/SurgePro.js,argument=icon=paperplane.circle&color=#f6c970
-
-[Panel]
-SurgePro = script-name=SurgePro,update-interval=1
