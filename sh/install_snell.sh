@@ -34,8 +34,15 @@ mkdir -p /etc/snell
 
 # 生成随机端口或用户指定端口
 DEFAULT_PORT=$((RANDOM % 10000 + 10000))
-read -p "请输入端口号（默认随机端口 ${DEFAULT_PORT}）： " PORT
-PORT=${PORT:-$DEFAULT_PORT}
+read -p "请输入端口号（留空则使用随机端口 ${DEFAULT_PORT}）： " PORT
+if [[ -z "$PORT" ]]; then
+  PORT=$DEFAULT_PORT
+else
+  if ! [[ "$PORT" =~ ^[0-9]+$ ]] || [ "$PORT" -lt 1 ] || [ "$PORT" -gt 65535 ]; then
+    echo "无效的端口号，请输入 1 到 65535 之间的整数！"
+    exit 1
+  fi
+fi
 
 # 生成随机 PSK
 PSK=$(openssl rand -base64 16)
