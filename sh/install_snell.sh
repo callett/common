@@ -7,8 +7,7 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 # 安装必要的软件包
-echo "安装必要的软件包..."
-apt update && apt install -y wget unzip vim
+apt update && apt install -y wget unzip
 
 # 下载 Snell Server
 SNELL_VERSION="4.1.1"
@@ -42,7 +41,7 @@ cat > /etc/snell/snell-server.conf << EOF
 [snell-server]
 listen = 0.0.0.0:${PORT}
 psk = ${PSK}
-ipv6 = true
+ipv6 = false
 EOF
 
 # 创建 Systemd 服务文件
