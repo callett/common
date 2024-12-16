@@ -15,7 +15,6 @@ apt update && apt -y install dnsmasq || { echo "dnsmasq 安装失败！"; exit 1
 # 配置分流规则
 echo "配置 dnsmasq 分流规则..."
 cat > /etc/dnsmasq.conf << EOF
-cat > /etc/dnsmasq.conf << EOF
 # Dazn
 server=/control.kochava.com/157.20.104.47
 server=/d151l6v8er5bdm.cloudfront.net/157.20.104.47
