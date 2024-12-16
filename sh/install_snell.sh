@@ -73,7 +73,7 @@ systemctl enable snell
 systemctl restart snell
 
 # 获取服务器的 IP 地址
-SERVER_IP=$(hostname -I | awk '{print $1}')
+SERVER_IP=$(ip addr show $(ip route | grep default | awk '{print $5}') | grep "inet " | awk '{print $2}' | cut -d/ -f1)
 
 # 打印配置信息
 echo "Snell Server 安装和配置完成！"
