@@ -286,9 +286,9 @@ EOF
 
 # 设置 dnsmasq 为系统 DNS
 echo "配置系统 DNS..."
-chattr -i /etc/resolv.conf
+#chattr -i /etc/resolv.conf
 echo -e "nameserver 127.0.0.1" > /etc/resolv.conf
-chattr +i /etc/resolv.conf
+#chattr +i /etc/resolv.conf
 
 # 重启 dnsmasq
 echo "重启 dnsmasq 服务..."
