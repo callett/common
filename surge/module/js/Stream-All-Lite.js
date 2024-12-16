@@ -333,7 +333,7 @@ function timeout(delay = 5000) {
 
 async function getTraceData() {
   return new Promise((resolve, reject) => {
-    $httpClient.get("http://chat.openai.com/cdn-cgi/trace", function(error, response, data) {
+    $httpClient.get("https://chat.openai.com/cdn-cgi/trace", function(error, response, data) {
       if (error) {
         reject(error);
         return;
