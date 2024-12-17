@@ -33,7 +33,7 @@ mkdir -p /etc/snell
 
 # 生成随机端口和 PSK
 PORT=$((RANDOM % 10000 + 10000)) # 生成 10000-19999 之间的随机端口
-PSK=$(openssl rand -base64 16)
+PSK=$(openssl rand -base64 24)
 
 # 创建配置文件
 echo "生成配置文件..."
@@ -42,6 +42,7 @@ cat > /etc/snell/snell-server.conf << EOF
 listen = 0.0.0.0:${PORT}
 psk = ${PSK}
 ipv6 = false
+dns = 154.12.177.22, 1.1.1.1, 8.8.8.8
 EOF
 
 # 创建 Systemd 服务文件
@@ -72,9 +73,6 @@ systemctl daemon-reload
 systemctl enable snell
 systemctl restart snell
 
-# 获取服务器的 IP 地址
-SERVER_IP=$(ip addr show $(ip route | grep default | awk '{print $5}') | grep "inet " | awk '{print $2}' | cut -d/ -f1)
-
 # 打印配置信息
 echo "Snell Server 安装和配置完成！"
 echo "----------------------------------------"
@@ -82,5 +80,5 @@ echo "Snell 配置信息："
 echo "监听地址：0.0.0.0:${PORT}"
 echo "PSK 密钥：${PSK}"
 echo "Surge 配置："
-echo "snell = snell, ${SERVER_IP}, ${PORT}, psk=${PSK}, version=4, tfo=true"
+echo "snell = snell, 127.0.0.1, ${PORT}, psk=${PSK}, version=4, tfo=true"
 echo "----------------------------------------"
