@@ -33,7 +33,7 @@ mkdir -p /etc/snell
 
 # 生成随机端口和 PSK
 PORT=$((RANDOM % 10000 + 10000)) # 生成 10000-19999 之间的随机端口
-PSK=$(openssl rand -base64 24)
+PSK=$(openssl rand -base64 16)
 
 # 创建配置文件
 echo "生成配置文件..."
@@ -42,7 +42,7 @@ cat > /etc/snell/snell-server.conf << EOF
 listen = 0.0.0.0:${PORT}
 psk = ${PSK}
 ipv6 = false
-dns = 154.12.177.22, 1.1.1.1, 8.8.8.8
+dns = 157.20.104.47, 1.1.1.1, 8.8.8.8
 EOF
 
 # 创建 Systemd 服务文件
