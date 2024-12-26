@@ -73,6 +73,20 @@ systemctl daemon-reload
 systemctl enable snell
 systemctl restart snell
 
+# 优先获取 IPv4 地址
+SERVER_IP=$(curl -4 -s ifconfig.me)
+
+# 如果 IPv4 地址为空，则尝试获取 IPv6 地址
+if [ -z "$SERVER_IP" ]; then
+    SERVER_IP=$(curl -6 -s ifconfig.me)
+fi
+
+# 如果仍然无法获取地址，提示错误
+if [ -z "$SERVER_IP" ]; then
+    echo "无法获取服务器的公网 IP 地址，请检查网络连接。"
+    exit 1
+fi
+
 # 打印配置信息
 echo "Snell Server 安装和配置完成！"
 echo "----------------------------------------"
@@ -80,5 +94,5 @@ echo "Snell 配置信息："
 echo "监听地址：0.0.0.0:${PORT}"
 echo "PSK 密钥：${PSK}"
 echo "Surge 配置："
-echo "snell = snell, 127.0.0.1, ${PORT}, psk=${PSK}, version=4, tfo=true"
+echo "snell = snell, ${SERVER_IP}, ${PORT}, psk=${PSK}, version=4, tfo=true"
 echo "----------------------------------------"
