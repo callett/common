@@ -41,6 +41,7 @@ cat > /etc/snell/snell-server.conf << EOF
 [snell-server]
 listen = 0.0.0.0:${PORT}
 psk = ${PSK}
+dns = 8.8.8.8, 1.1.1.1
 EOF
 
 # 创建 Systemd 服务文件
