@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# 获取服务器公网IP
+IP=$(curl -s https://api.ipify.org)
+
 # 设置默认端口
 DEFAULT_PORT=443
 read -p "请输入端口号（默认: $DEFAULT_PORT）: " PORT
@@ -54,4 +57,4 @@ echo "密码：${PASSWORD}"
 echo "加密方式：aes-256-gcm"
 echo
 echo "Surge 配置："
-echo "ss, 0.0.0.0, ${PORT}, encrypt-method=aes-256-gcm, password=${PASSWORD}, tfo=true"
+echo "ss, ${IP}, ${PORT}, encrypt-method=aes-256-gcm, password=${PASSWORD}, tfo=true"
