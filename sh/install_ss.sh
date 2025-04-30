@@ -22,7 +22,7 @@ sudo tee /etc/shadowsocks-rust/config.json > /dev/null << EOF
   "server_port": $PORT,
   "password": "$PASSWORD",
   "method": "aes-256-gcm",
-  "fast_open": false,
+  "fast_open": true,
   "no_delay": true,
   "timeout": 300
 }
