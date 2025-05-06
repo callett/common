@@ -44,5 +44,21 @@ systemctl daemon-reload
 systemctl restart snell
 systemctl enable snell
 
-# 显示服务状态
-systemctl status snell
+# 获取服务器公网IP
+IP=$(curl -s https://api.ipify.org)
+
+# 配置文件路径
+CONFIG_FILE="/etc/snell/snell-server.conf"
+
+# 提取 listen 和 psk 的值
+PORT=$(grep '^listen' "$CONFIG_FILE" | awk -F ':' '{print $2}')
+PSK=$(grep '^psk' "$CONFIG_FILE" | awk -F '=' '{print $2}' | tr -d ' ')
+
+# 输出配置信息
+echo
+echo "Snell 配置信息："
+echo "监听地址：0.0.0.0:${PORT}"
+echo "PSK：${PSK}"
+echo
+echo "Surge 配置："
+echo "snell, ${IP}, ${PORT}, psk=${PSK}, version=4, tfo=true"
