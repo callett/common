@@ -54,5 +54,5 @@ EOF
 systemctl daemon-reload
 systemctl enable --now realm.service
 
-echo -e "\nRealm 已完成安装并启动"
+echo -e "\nRealm 已完成安装配置并启动"
 echo "监听端口: 127.0.0.1:${REALM_PORT}"
