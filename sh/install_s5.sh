@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# 颜色定义
+GREEN='\033[0;32m'
+NC='\033[0m' # 没颜色
+
 # 一些变量
 USERNAME="socksuser"
 # 随机生成32位密码
@@ -49,10 +53,10 @@ if command -v ufw >/dev/null 2>&1; then
     ufw allow ${PORT}/tcp
 fi
 
-echo "SOCKS5 安装完成！"
-echo "监听端口：$PORT"
-echo "用户名：$USERNAME"
-echo "密码：$PASSWORD"
+echo "${GREEN}SOCKS5 安装完成！"
+echo "${GREEN}监听端口：$PORT"
+echo "${GREEN}用户名：$USERNAME"
+echo "${GREEN}密码：$PASSWORD"
 echo
-echo "Surge 配置："
-echo "socks5, ${IP}, ${PORT}, username=${USERNAME}, password=${PASSWORD}"
+echo "${GREEN}Surge 配置："
+echo "${GREEN}socks5, ${IP}, ${PORT}, username=${USERNAME}, password=${PASSWORD}"

@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# 颜色定义
+GREEN='\033[0;32m'
+NC='\033[0m' # 没颜色
+
 # 提示用户输入 Socks5 信息
 read -p "请输入落地服务器 IP: " REMOTE_IP
 read -p "请输入落地服务器端口（默认 1080）: " REMOTE_PORT
@@ -83,5 +87,5 @@ EOF
 systemctl daemon-reload
 systemctl enable --now realm.service
 
-echo -e "\nRealm 已完成安装配置并启动"
-echo "监听端口: 127.0.0.1:${REALM_PORT}"
+echo -e "\n${GREEN}Realm 已完成安装配置并启动"
+echo "${GREEN}监听端口: 127.0.0.1:${REALM_PORT}"

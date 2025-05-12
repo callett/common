@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# 颜色定义
+GREEN='\033[0;32m'
+NC='\033[0m' # 没颜色
+
 # 获取服务器公网IP
 IP=$(curl -s https://api.ipify.org)
 
@@ -51,10 +55,10 @@ sudo systemctl enable ssserver --now
 
 # 输出配置信息
 echo
-echo "Shadowsocks 配置信息："
-echo "监听地址：0.0.0.0:${PORT}"
-echo "密码：${PASSWORD}"
-echo "加密方式：aes-256-gcm"
+echo "${GREEN}Shadowsocks 配置信息："
+echo "${GREEN}监听地址：0.0.0.0:${PORT}"
+echo "${GREEN}密码：${PASSWORD}"
+echo "${GREEN}加密方式：aes-256-gcm"
 echo
-echo "Surge 配置："
-echo "ss, ${IP}, ${PORT}, encrypt-method=aes-256-gcm, password=${PASSWORD}, tfo=true"
+echo "${GREEN}Surge 配置："
+echo "${GREEN}ss, ${IP}, ${PORT}, encrypt-method=aes-256-gcm, password=${PASSWORD}, tfo=true"
