@@ -9,7 +9,7 @@ read -p "请输入端口号（默认: $DEFAULT_PORT）: " PORT
 PORT=${PORT:-$DEFAULT_PORT}
 
 # 随机生成32位密码
-PASSWORD=$(head /dev/urandom | tr -dc 'A-Za-z0-9@#%&+=' | head -c 32)
+PASSWORD=$(head /dev/urandom | tr -dc 'A-Za-z0-9@%&' | head -c 32)
 
 # 下载和部署 Shadowsocks-Rust
 mkdir -p ~/ss && cd ~/ss

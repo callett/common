@@ -3,7 +3,7 @@
 # 一些变量
 USERNAME="socksuser"
 # 随机生成32位密码
-PASSWORD=$(head /dev/urandom | tr -dc 'A-Za-z0-9@#%&+=' | head -c 32)
+PASSWORD=$(head /dev/urandom | tr -dc 'A-Za-z0-9@%&' | head -c 32)
 PORT="1080"
 IFACE=$(ip route get 1 | awk '{print $5; exit}')
 IP=$(curl -s https://api.ipify.org)
