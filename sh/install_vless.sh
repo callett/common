@@ -3,6 +3,7 @@
 # 颜色定义
 GREEN='\033[0;32m'
 NC='\033[0m' # 没颜色
+
 IP=$(curl -s https://api.ipify.org)
 
 # 提示用户输入端口
@@ -95,4 +96,4 @@ echo "${GREEN}伪装域名: $SERVER_NAME"
 echo
 # 输出 Clash 配置参考
 echo -e "\n${GREEN}Clash 配置参考：${NC}"
-echo "- {name: vless, server: $IP, port: $PORT, reality-opts: {public-key: $PUBLIC_KEY, short-id: $SHORT_ID}, client-fingerprint: chrome, type: vless, uuid: $UUID, tls: true, udp: true, tfo: false, skip-cert-verify: true, flow: xtls-rprx-vision, servername: $SERVER_NAME, network: tcp}"
+echo "${GREEN}- {name: vless, server: $IP, port: $PORT, reality-opts: {public-key: $PUBLIC_KEY, short-id: $SHORT_ID}, client-fingerprint: chrome, type: vless, uuid: $UUID, tls: true, udp: true, tfo: false, skip-cert-verify: true, flow: xtls-rprx-vision, servername: $SERVER_NAME, network: tcp}"

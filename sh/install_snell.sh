@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# 颜色定义
+GREEN='\033[0;32m'
+NC='\033[0m' # 没颜色
+
 set -e
 
 # 更新系统并安装必要工具
@@ -56,9 +60,9 @@ PSK=$(grep '^psk' "$CONFIG_FILE" | awk -F '=' '{print $2}' | tr -d ' ')
 
 # 输出配置信息
 echo
-echo "Snell 配置信息："
-echo "监听地址：0.0.0.0:${PORT}"
-echo "PSK：${PSK}"
+echo "${GREEN}Snell 配置信息："
+echo "${GREEN}监听地址：0.0.0.0:${PORT}"
+echo "${GREEN}PSK：${PSK}"
 echo
-echo "Surge 配置："
-echo "snell, ${IP}, ${PORT}, psk=${PSK}, version=4, tfo=true"
+echo "${GREEN}Surge 配置："
+echo "${GREEN}snell, ${IP}, ${PORT}, psk=${PSK}, version=4, tfo=true"
