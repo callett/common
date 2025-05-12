@@ -1,51 +1,24 @@
 #!/bin/bash
 
-# 提升权限
-if [ "$EUID" -ne 0 ]; then
-  echo "请以 root 用户运行此脚本！"
-  exit 1
-fi
+set -e
 
-# 安装必要的软件包
-apt update && apt install -y wget unzip
+# 更新系统并安装必要工具
+apt update
+apt install -y wget unzip vim
 
-# 下载 Snell Server
-SNELL_VERSION="4.1.1"
-SNELL_FILE="snell-server-v${SNELL_VERSION}-linux-amd64.zip"
-DOWNLOAD_URL="https://dl.nssurge.com/snell/${SNELL_FILE}"
-
-echo "下载 Snell Server v${SNELL_VERSION}..."
-wget -q ${DOWNLOAD_URL} -O ${SNELL_FILE}
-if [ $? -ne 0 ]; then
-  echo "下载 Snell Server 失败，请检查网络连接！"
-  exit 1
-fi
-
-# 解压并移动到指定目录
-echo "解压 Snell Server..."
-unzip -o ${SNELL_FILE} -d /usr/local/bin
-rm -f ${SNELL_FILE}
+# 下载并安装 Snell Server
+wget https://dl.nssurge.com/snell/snell-server-v4.1.1-linux-amd64.zip
+unzip snell-server-v4.1.1-linux-amd64.zip -d /usr/local/bin
+rm -f snell-server-v4.1.1-linux-amd64.zip
 chmod +x /usr/local/bin/snell-server
 
 # 创建配置目录
-echo "创建配置目录..."
 mkdir -p /etc/snell
 
-# 生成随机端口和 PSK
-PORT=$((RANDOM % 10000 + 10000)) # 生成 10000-19999 之间的随机端口
-PSK=$(openssl rand -base64 16)
+# 启动 Snell Server 配置向导（用户需手动输入 Y 并配置）
+/usr/local/bin/snell-server --wizard -c /etc/snell/snell-server.conf
 
-# 创建配置文件
-echo "生成配置文件..."
-cat > /etc/snell/snell-server.conf << EOF
-[snell-server]
-listen = 0.0.0.0:${PORT}
-psk = ${PSK}
-dns = 8.8.8.8, 1.1.1.1
-EOF
-
-# 创建 Systemd 服务文件
-echo "配置 Systemd 服务..."
+# 创建 systemd 服务文件
 cat > /lib/systemd/system/snell.service << EOF
 [Unit]
 Description=Snell Proxy Service
@@ -66,32 +39,26 @@ SyslogIdentifier=snell-server
 WantedBy=multi-user.target
 EOF
 
-# 重新加载 systemd 服务并启动 Snell
-echo "启动 Snell 服务..."
+# 启动并启用服务
 systemctl daemon-reload
-systemctl enable snell
 systemctl restart snell
+systemctl enable snell
 
-# 优先获取 IPv4 地址
-SERVER_IP=$(curl -4 -s ifconfig.me)
+# 获取服务器公网IP
+IP=$(curl -s https://api.ipify.org)
 
-# 如果 IPv4 地址为空，则尝试获取 IPv6 地址
-if [ -z "$SERVER_IP" ]; then
-    SERVER_IP=$(curl -6 -s ifconfig.me)
-fi
+# 配置文件路径
+CONFIG_FILE="/etc/snell/snell-server.conf"
 
-# 如果仍然无法获取地址，提示错误
-if [ -z "$SERVER_IP" ]; then
-    echo "无法获取服务器的公网 IP 地址，请检查网络连接。"
-    exit 1
-fi
+# 提取 listen 和 psk 的值
+PORT=$(grep '^listen' "$CONFIG_FILE" | awk -F ':' '{print $2}')
+PSK=$(grep '^psk' "$CONFIG_FILE" | awk -F '=' '{print $2}' | tr -d ' ')
 
-# 打印配置信息
-echo "Snell Server 安装和配置完成！"
-echo "----------------------------------------"
+# 输出配置信息
+echo
 echo "Snell 配置信息："
 echo "监听地址：0.0.0.0:${PORT}"
-echo "PSK 密钥：${PSK}"
+echo "PSK：${PSK}"
+echo
 echo "Surge 配置："
-echo "snell = snell, ${SERVER_IP}, ${PORT}, psk=${PSK}, version=4, tfo=true"
-echo "----------------------------------------"
+echo "snell, ${IP}, ${PORT}, psk=${PSK}, version=4, tfo=true"
