@@ -28,4 +28,4 @@ echo "启动 Nginx 并设置开机启动..."
 sudo systemctl enable nginx
 sudo systemctl start nginx
 
-echo "Nginx 安装完成。访问 http:${IP} 测试是否安装成功。"
+echo "Nginx 安装完成。访问 http://${IP} 测试是否安装成功。"
