@@ -53,10 +53,10 @@ if command -v ufw >/dev/null 2>&1; then
     ufw allow ${PORT}/tcp
 fi
 
-echo "${GREEN}SOCKS5 安装完成！"
-echo "${GREEN}监听端口：$PORT"
-echo "${GREEN}用户名：$USERNAME"
-echo "${GREEN}密码：$PASSWORD"
+echo -e "${GREEN}SOCKS5 安装完成！${NC}"
+echo -e "${GREEN}监听端口：$PORT${NC}"
+echo -e "${GREEN}用户名：$USERNAME${NC}"
+echo -e "${GREEN}密码：$PASSWORD${NC}"
 echo
-echo "${GREEN}Surge 配置："
-echo "${GREEN}socks5, ${IP}, ${PORT}, username=${USERNAME}, password=${PASSWORD}"
+echo -e "${GREEN}Surge 配置：${NC}"
+echo -e "${GREEN}socks5, ${IP}, ${PORT}, username=${USERNAME}, password=${PASSWORD}${NC}"

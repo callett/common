@@ -87,13 +87,13 @@ systemctl restart xray
 sleep 1
 systemctl status xray --no-pager
 
-echo "${GREEN}Vless 安装完成！"
-echo "${GREEN}监听端口：$PORT"
-echo "${GREEN}公钥信息：$PUBLIC_KEY"
-echo "${GREEN}shortId：$SHORT_ID"
-echo "${GREEN}UUID: $UUID"
-echo "${GREEN}伪装域名: $SERVER_NAME"
+echo -e "${GREEN}Vless 安装完成！${NC}"
+echo -e "${GREEN}监听端口：$PORT${NC}"
+echo -e "${GREEN}公钥信息：$PUBLIC_KEY${NC}"
+echo -e "${GREEN}shortId：$SHORT_ID${NC}"
+echo -e "${GREEN}UUID: $UUID${NC}"
+echo -e "${GREEN}伪装域名: $SERVER_NAME${NC}"
 echo
 # 输出 Clash 配置参考
-echo -e "\n${GREEN}Clash 配置参考：${NC}"
-echo "${GREEN}- {name: vless, server: $IP, port: $PORT, reality-opts: {public-key: $PUBLIC_KEY, short-id: $SHORT_ID}, client-fingerprint: chrome, type: vless, uuid: $UUID, tls: true, udp: true, tfo: false, skip-cert-verify: true, flow: xtls-rprx-vision, servername: $SERVER_NAME, network: tcp}"
+echo -e "${GREEN}Clash 配置参考：${NC}"
+echo -e "${GREEN}- {name: vless, server: $IP, port: $PORT, reality-opts: {public-key: $PUBLIC_KEY, short-id: $SHORT_ID}, client-fingerprint: chrome, type: vless, uuid: $UUID, tls: true, udp: true, tfo: false, skip-cert-verify: true, flow: xtls-rprx-vision, servername: $SERVER_NAME, network: tcp}${NC}"

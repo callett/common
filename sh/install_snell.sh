@@ -60,9 +60,9 @@ PSK=$(grep '^psk' "$CONFIG_FILE" | awk -F '=' '{print $2}' | tr -d ' ')
 
 # 输出配置信息
 echo
-echo "${GREEN}Snell 配置信息："
-echo "${GREEN}监听地址：0.0.0.0:${PORT}"
-echo "${GREEN}PSK：${PSK}"
+echo -e "${GREEN}Snell 配置信息：${NC}"
+echo -e "${GREEN}监听地址：0.0.0.0:${PORT}${NC}"
+echo -e "${GREEN}PSK：${PSK}${NC}"
 echo
-echo "${GREEN}Surge 配置："
-echo "${GREEN}snell, ${IP}, ${PORT}, psk=${PSK}, version=4, tfo=true"
+echo -e "${GREEN}Surge 配置：${NC}"
+echo -e "${GREEN}snell, ${IP}, ${PORT}, psk=${PSK}, version=4, tfo=true${NC}"

@@ -55,10 +55,10 @@ sudo systemctl enable ssserver --now
 
 # 输出配置信息
 echo
-echo "${GREEN}Shadowsocks 配置信息："
-echo "${GREEN}监听地址：0.0.0.0:${PORT}"
-echo "${GREEN}密码：${PASSWORD}"
-echo "${GREEN}加密方式：aes-256-gcm"
+echo -e "${GREEN}Shadowsocks 配置信息：${NC}"
+echo -e "${GREEN}监听地址：0.0.0.0:${PORT}${NC}"
+echo -e "${GREEN}密码：${PASSWORD}${NC}"
+echo -e "${GREEN}加密方式：aes-256-gcm${NC}"
 echo
-echo "${GREEN}Surge 配置："
-echo "${GREEN}ss, ${IP}, ${PORT}, encrypt-method=aes-256-gcm, password=${PASSWORD}, tfo=true"
+echo -e "${GREEN}Surge 配置：${NC}"
+echo -e "${GREEN}ss, ${IP}, ${PORT}, encrypt-method=aes-256-gcm, password=${PASSWORD}, tfo=true${NC}"
