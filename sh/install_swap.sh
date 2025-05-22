@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# 颜色定义
+GREEN='\033[0;32m'
+NC='\033[0m' # 没颜色
+
 # 默认大小（单位：MB）
 DEFAULT_SIZE=1024
 
@@ -10,7 +14,7 @@ SIZE=${SIZE:-$DEFAULT_SIZE}
 SWAPFILE="/opt/swapfile"
 
 # 创建Swap文件
-echo "正在创建 $SIZE MB 的Swap文件..."
+echo -e "正在创建 $SIZE MB 的Swap文件...${NC}"
 dd if=/dev/zero of=$SWAPFILE bs=1M count=$SIZE status=progress
 
 # 设置交换文件权限
@@ -29,7 +33,7 @@ if ! grep -q "$SWAPFILE swap swap" /etc/fstab; then
 fi
 
 # 显示当前swap信息
-echo "${GREEN}当前Swap使用情况："
+echo -e "${GREEN}当前Swap使用情况："
 swapon --show
 
-echo "${GREEN}Swap配置完成（大小：$SIZE MB）"
+echo -e "${GREEN}Swap配置完成（大小：$SIZE MB）${NC}"
