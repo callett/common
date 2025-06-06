@@ -4,7 +4,7 @@
 #!version=2025.06.01
 #!homepage=https://github.com/luestr/ProxyResource/blob/main/README.md
 #!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Spotify.png
-#!tag=去广告
+#!tags=远程订阅
 
 [Header Rewrite]
 # 移除缓存头，避免 Spotify 接口返回304导致脚本无效
