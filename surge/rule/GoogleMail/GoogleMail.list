@@ -1,0 +1,24 @@
+# NAME: Google Mail
+# AUTHOR: Callett
+# DOMAIN-SUFFIX: 12
+# TOTAL: 12
+
+# Gmail 服务本体
+DOMAIN-SUFFIX,gmail.com
+DOMAIN-SUFFIX,imap.gmail.com
+DOMAIN-SUFFIX,smtp.gmail.com
+
+# Google OAuth 登录认证
+DOMAIN-SUFFIX,accounts.google.com
+DOMAIN-SUFFIX,oauth2.googleapis.com
+
+# 邮件附件 & 图片
+DOMAIN-SUFFIX,googleusercontent.com
+DOMAIN-SUFFIX,ggpht.com
+DOMAIN-SUFFIX,gstatic.com
+DOMAIN-SUFFIX,googleapis.com
+
+# Google Drive 附带
+DOMAIN-SUFFIX,mail.google.com
+DOMAIN-SUFFIX,drive.google.com
+DOMAIN-SUFFIX,clients6.google.com
