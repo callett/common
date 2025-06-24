@@ -5,8 +5,8 @@
 
 DOMAIN-SUFFIX,wise.com
 DOMAIN-SUFFIX,transferwise.com
-DOMAIN-SUFFIX,static.transferwise.com
-DOMAIN-SUFFIX,wise.static-assets.com
+# DOMAIN-SUFFIX,static.transferwise.com
+# DOMAIN-SUFFIX,wise.static-assets.com
 # DOMAIN-SUFFIX,borderless.com
 DOMAIN,identity.wise.com
 DOMAIN,verify.wise.com
