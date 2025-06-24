@@ -14,4 +14,4 @@ DOMAIN,checkout.wise.com
 DOMAIN,pay.wise.com
 
 # 第三方支付
-DOMAIN-SUFFIX,stripe.com
+# DOMAIN-SUFFIX,stripe.com
