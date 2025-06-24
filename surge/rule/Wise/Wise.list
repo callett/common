@@ -1,2 +1,17 @@
+# NAME: Wise
+# AUTHOR: Callett
+# DOMAIN-SUFFIX: 10
+# TOTAL: 10
+
 DOMAIN-SUFFIX,wise.com
-DOMAIN-SUFFIX,transferwise.co
+DOMAIN-SUFFIX,transferwise.com
+DOMAIN-SUFFIX,static.transferwise.com
+DOMAIN-SUFFIX,wise.static-assets.com
+DOMAIN-SUFFIX,borderless.com
+DOMAIN,identity.wise.com
+DOMAIN,verify.wise.com
+DOMAIN,checkout.wise.com
+DOMAIN,pay.wise.com
+
+# 第三方支付
+DOMAIN-SUFFIX,stripe.com
