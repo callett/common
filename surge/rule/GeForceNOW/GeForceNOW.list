@@ -16,6 +16,8 @@ DOMAIN-SUFFIX,router.gfn.nvidia.com
 DOMAIN-SUFFIX,relay.gfn.nvidia.com
 DOMAIN-SUFFIX,dls.nvidia.com
 DOMAIN-SUFFIX,ota-downloads.nvidia.com
+DOMAIN-SUFFIX,als.geforcenow.com
+DOMAIN-SUFFIX,img.nvidiagrid.net
 
 # CDN 提升连接
 DOMAIN-SUFFIX,akamaized.net
