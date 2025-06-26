@@ -1,0 +1,23 @@
+# NAME: GeForce NOW
+# AUTHOR: Callett
+# DOMAIN-SUFFIX: 15
+# TOTAL: 15
+
+# GeForce NOW 核心
+DOMAIN-SUFFIX,geforce.com
+DOMAIN-SUFFIX,nvidia.com
+DOMAIN-SUFFIX,nvidia-api.com
+DOMAIN-SUFFIX,play.geforcenow.com
+DOMAIN-SUFFIX,gfn.nvidia.com
+DOMAIN-SUFFIX,gn.api.nvidia.com
+DOMAIN-SUFFIX,gfn-speed.nvidia.com
+DOMAIN-SUFFIX,nv.apps.nvidia.com
+DOMAIN-SUFFIX,router.gfn.nvidia.com
+DOMAIN-SUFFIX,relay.gfn.nvidia.com
+DOMAIN-SUFFIX,dls.nvidia.com
+DOMAIN-SUFFIX,ota-downloads.nvidia.com
+
+# CDN 提升连接
+DOMAIN-SUFFIX,akamaized.net
+DOMAIN-SUFFIX,fastly.net
+DOMAIN-SUFFIX,cloudfront.net
