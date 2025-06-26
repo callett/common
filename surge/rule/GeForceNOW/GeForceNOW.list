@@ -7,6 +7,8 @@
 DOMAIN-SUFFIX,geforce.com
 DOMAIN-SUFFIX,nvidia.com
 DOMAIN-SUFFIX,nvidia-api.com
+DOMAIN-SUFFIX,geforcenow.com
+DOMAIN-SUFFIX,nvidiagrid.net
 DOMAIN-SUFFIX,play.geforcenow.com
 DOMAIN-SUFFIX,gfn.nvidia.com
 DOMAIN-SUFFIX,gn.api.nvidia.com
@@ -16,8 +18,8 @@ DOMAIN-SUFFIX,router.gfn.nvidia.com
 DOMAIN-SUFFIX,relay.gfn.nvidia.com
 DOMAIN-SUFFIX,dls.nvidia.com
 DOMAIN-SUFFIX,ota-downloads.nvidia.com
-DOMAIN-SUFFIX,als.geforcenow.com
-DOMAIN-SUFFIX,img.nvidiagrid.net
+
+IP-CIDR,66.22.144.47/32,no-resolve
 
 # CDN 提升连接
 DOMAIN-SUFFIX,akamaized.net
