@@ -91,4 +91,4 @@ echo -e "${GREEN}监听地址：0.0.0.0:${PORT}${NC}"
 echo -e "${GREEN}PSK：${PSK}${NC}"
 echo
 echo -e "${GREEN}Surge 配置：${NC}"
-echo -e "${GREEN}snell, ${IP}, ${PORT}, psk=${PSK}, version=${version_major}, tfo=true${NC}"
+echo -e "${GREEN}snell, ${IP}, ${PORT}, psk=${PSK}, version=${VERSION_MAJOR}, tfo=true${NC}"
