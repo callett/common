@@ -7,14 +7,15 @@ NC='\033[0m' # 没颜色
 set -e
 
 # 更新系统并安装必要工具
+echo -e "${GREEN}正在安装必要工具...${NC}"
 apt update
 apt install -y wget unzip vim
 
 # 可选版本
-echo -e "请选择要安装的 Snell Server 版本：${NC}"
-echo -e "1. v3.0.1${NC}"
-echo -e "2. v4.0.1${NC}"
-echo -e "3. v4.1.1${NC}"
+echo -e "${GREEN}请选择要安装的 Snell Server 版本："
+echo -e "1. v3.0.1"
+echo -e "2. v4.0.1"
+echo -e "3. v4.1.1"
 echo -e "4. v5.0.0b1${NC}"
 read -p "请输入数字 (1-4): " CHOICE
 
@@ -34,7 +35,7 @@ esac
 FILENAME="snell-server-${VERSION}-linux-amd64.zip"
 
 # 下载
-echo -e "正在下载 Snell Server ${VERSION}...${NC}"
+echo -e "${GREEN}正在下载 Snell Server ${VERSION}...${NC}"
 
 # 下载并安装 Snell Server
 wget "https://dl.nssurge.com/snell/${FILENAME}"
