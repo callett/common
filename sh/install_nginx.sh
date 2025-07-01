@@ -16,7 +16,7 @@ curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor | sudo tee /usr/sh
 # 添加官方 Nginx 仓库
 DISTRO_CODENAME=$(lsb_release -cs)
 echo "添加 Nginx 官方仓库 (${DISTRO_CODENAME})..."
-echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/debian ${DISTRO_CODENAME} nginx" | sudo tee /etc/apt/sources.list.d/nginx.list
+echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/debian ${DISTRO_CODENAME} nginx" | tee /etc/apt/sources.list.d/nginx.list
 
 # 更新并安装 Nginx
 echo "更新源并安装 Nginx..."
